@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fortinet SecOps MITRE Matrix - Parent Techniques</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #0b1220;
+      --border: #223049;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --fsm: #14b8a6;
+      --fedr: #3b82f6;
+      --fndr: #8b5cf6;
+      --combined: #f59e0b;
+      --chip: #1f2937;
+      --tile: #0b1220;
+      --hover: #162033;
+      --good-1: #2a2f3a;   /* gray (0) */
+      --good-2: #1f6f6f;   /* low */
+      --good-3: #1fa3a3;   /* medium */
+      --good-4: #2dd4bf;   /* good */
+      --good-5: #22c55e;   /* strong */
+      --shadow: 0 8px 24px rgba(0,0,0,0.28);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #0f172a 100%);
+      color: var(--text);
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(11, 18, 32, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .topbar-inner {
+      padding: 16px 18px 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .title-block h1 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .title-block p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+      max-width: 980px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 8px 12px;
+      min-width: 110px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .stat-value {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search, .select, .file-label {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 13px;
+    }
+
+    .file-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      min-width: 150px;
+      white-space: nowrap;
+    }
+
+    .file-label input { display: none; }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      border: 1px solid var(--border);
+      background: var(--chip);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .chip.active {
+      background: #f8fafc;
+      color: #0f172a;
+      border-color: #f8fafc;
+      font-weight: 700;
+    }
+
+    .legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .legend-item::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      margin-right: 6px;
+      border-radius: 3px;
+      vertical-align: -2px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .lv1::before { background: var(--good-1); }
+    .lv2::before { background: var(--good-2); }
+    .lv3::before { background: var(--good-3); }
+    .lv4::before { background: var(--good-4); }
+    .lv5::before { background: var(--good-5); }
+
+    .matrix-scroll-top {
+      overflow-x: auto;
+      overflow-y: hidden;
+      height: 20px;
+      margin: 0 16px 8px 16px;
+      position: sticky;
+      top: 156px;
+      z-index: 15;
+      background: rgba(11, 18, 32, 0.98);
+      border-bottom: 1px solid var(--border);
+      scrollbar-gutter: stable;
+    }
+
+    .matrix-scroll-sync { height: 20px; }
+
+    .matrix-scroll-top::-webkit-scrollbar,
+    .matrix-wrap::-webkit-scrollbar,
+    .drawer-body::-webkit-scrollbar {
+      height: 12px;
+      width: 12px;
+    }
+
+    .matrix-scroll-top::-webkit-scrollbar-track,
+    .matrix-wrap::-webkit-scrollbar-track,
+    .drawer-body::-webkit-scrollbar-track {
+      background: #111827;
+      border-radius: 999px;
+    }
+
+    .matrix-scroll-top::-webkit-scrollbar-thumb,
+    .matrix-wrap::-webkit-scrollbar-thumb,
+    .drawer-body::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 999px;
+    }
+
+    .matrix-wrap {
+      padding: 16px;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    .matrix {
+      display: grid;
+      gap: 14px;
+      min-width: max-content;
+      align-items: start;
+    }
+
+    .tactic {
+      width: 250px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 240px;
+    }
+
+    .tactic-header {
+      padding: 12px 12px 10px;
+      background: rgba(17, 24, 39, 0.95);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      top: 0;
+      z-index: 1;
+    }
+
+    .tactic-header h2 {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .tactic-header .meta {
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .tech-list {
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .tech {
+      background: var(--tile);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px;
+      cursor: pointer;
+      transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+    }
+
+    .tech:hover {
+      transform: translateY(-1px);
+      background: var(--hover);
+      border-color: #34507b;
+    }
+
+    .tech-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .tech-name {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .tech-id {
+      display: inline-block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 400;
+    }
+
+    .combined-badge {
+      min-width: 34px;
+      text-align: center;
+      padding: 4px 6px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--good-2);
+    }
+
+    .subtech-count {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.35;
+    }
+
+    .score-grid {
+      display: grid;
+      gap: 5px;
+      margin-top: 8px;
+    }
+
+    .score-row {
+      display: grid;
+      grid-template-columns: 40px 1fr 22px;
+      align-items: center;
+      gap: 7px;
+      font-size: 10px;
+    }
+
+    .score-label {
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .track {
+      height: 8px;
+      border-radius: 999px;
+      background: #1f2937;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .fill { height: 100%; border-radius: 999px; }
+    .fill.fsm { background: var(--fsm); }
+    .fill.fedr { background: var(--fedr); }
+    .fill.fndr { background: var(--fndr); }
+    .fill.combined { background: var(--combined); }
+
+    .tech-note {
+      margin-top: 8px;
+      font-size: 10px;
+      line-height: 1.35;
+      color: var(--muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .empty {
+      padding: 28px;
+      color: var(--muted);
+      text-align: center;
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      background: rgba(17,24,39,0.45);
+    }
+
+    .drawer {
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: min(620px, 100vw);
+      height: 100vh;
+      background: #0b1220;
+      border-left: 1px solid var(--border);
+      box-shadow: -12px 0 32px rgba(0,0,0,0.35);
+      transform: translateX(100%);
+      transition: transform 0.18s ease;
+      z-index: 30;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer.open { transform: translateX(0); }
+
+    .drawer-header {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .drawer-header h3 {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
+
+    .drawer-header small { color: var(--muted); }
+
+    .close-btn {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+
+    .drawer-body {
+      padding: 16px;
+      overflow: auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .detail-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      background: var(--panel);
+    }
+
+    .detail-card h4 {
+      margin: 0 0 10px;
+      font-size: 13px;
+    }
+
+    .detail-grid {
+      display: grid;
+      gap: 8px;
+    }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: 56px 1fr 34px;
+      gap: 8px;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .detail-label { color: var(--muted); font-weight: 700; }
+    .detail-note { font-size: 12px; color: var(--muted); line-height: 1.45; }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 11px;
+      color: var(--text);
+    }
+
+    .source-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .source-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      background: var(--panel-2);
+    }
+
+    .source-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 12px;
+    }
+
+    .source-note {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .sub-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .sub-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      background: var(--panel-2);
+    }
+
+    .sub-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .sub-meta {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2,6,23,0.55);
+      z-index: 25;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
+    }
+
+    .overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 1200px) {
+      .controls { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .controls { grid-template-columns: 1fr; }
+      .title-row { flex-direction: column; }
+      .matrix-scroll-top { top: 206px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="title-row">
+          <div class="title-block">
+            <h1>Fortinet SecOps MITRE Matrix</h1>
+            <p>
+              Parent-technique ATT&amp;CK coverage view for FortiSIEM (FSM), FortiEDR (FEDR) and FortiNDR (FNDR).
+            </p>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-label">Techniques</div>
+              <div class="stat-value" id="stat-techniques">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Tactics</div>
+              <div class="stat-value" id="stat-tactics">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Mappings</div>
+              <div class="stat-value" id="stat-mappings">0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <input id="searchInput" class="search" type="text" placeholder="Search technique ID, name, sub-techniques, or notes" />
+          <select id="tacticFilter" class="select">
+            <option value="all">All tactics</option>
+          </select>
+          <select id="sortMode" class="select">
+            <option value="combined">Sort by total mapped entries</option>
+            <option value="mappings">Sort by mapping count</option>
+            <option value="name">Sort by technique name</option>
+            <option value="id">Sort by technique ID</option>
+          </select>
+          <label class="file-label">
+            Load ATT&CK Coverage
+            <input id="fileInput" type="file" accept=".json" />
+          </label>
+        </div>
+
+        <div class="chips" id="modeChips">
+          <button class="chip active" data-mode="all">All</button>
+          <button class="chip" data-mode="fsm">FSM</button>
+          <button class="chip" data-mode="fedr">FEDR</button>
+          <button class="chip" data-mode="fndr">FNDR</button>
+          <button class="chip" data-mode="combined">Combined</button>
+          <button class="chip" data-mode="gaps">Show low coverage (&lt; 3)</button>
+          <button class="chip" data-mode="nocoverage">Show uncovered techniques</button>
+        </div>
+
+        <div class="legend">
+        <span class="legend-item lv1">0</span>
+        <span class="legend-item lv2">1</span>
+        <span class="legend-item lv3">2-4</span>
+        <span class="legend-item lv4">5-9</span>
+        <span class="legend-item lv5">10+</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="matrix-scroll-top" id="matrixScrollTop">
+      <div class="matrix-scroll-sync" id="matrixScrollSync"></div>
+    </div>
+
+    <main class="matrix-wrap">
+      <div id="matrix" class="matrix"></div>
+    </main>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+  <aside id="drawer" class="drawer">
+    <div class="drawer-header">
+      <div>
+        <h3 id="drawerTitle">Technique</h3>
+        <small id="drawerSubtitle">Details</small>
+      </div>
+      <button id="closeDrawer" class="close-btn">Close</button>
+    </div>
+    <div class="drawer-body" id="drawerBody"></div>
+  </aside>
+
+  <script>
+    const ATTACK_TACTICS = [
+      'Reconnaissance', 'Resource Development', 'Initial Access', 'Execution', 'Persistence', 'Privilege Escalation',
+      'Defense Evasion', 'Credential Access', 'Discovery', 'Lateral Movement', 'Collection', 'Command and Control',
+      'Exfiltration', 'Impact'
+    ];
+
+    const PRODUCT_CONFIG = {
+      FSM:  { label: 'FSM',  css: 'fsm' },
+      FEDR: { label: 'FEDR', css: 'fedr' },
+      FNDR: { label: 'FNDR', css: 'fndr' }
+    };
+
+    const techniqueCatalog = {
+      'T1078.004': { name: 'Cloud Accounts', tactic: 'Initial Access' },
+      'T1566.001': { name: 'Phishing - Attachment', tactic: 'Initial Access' },
+      'T1133': { name: 'External Remote Services', tactic: 'Initial Access' },
+      'T1059.001': { name: 'PowerShell', tactic: 'Execution' },
+      'T1047': { name: 'Windows Management Instrumentation', tactic: 'Execution' },
+      'T1204.002': { name: 'Malicious File', tactic: 'Execution' },
+      'T1046': { name: 'Network Service Discovery', tactic: 'Discovery' },
+      'T1033': { name: 'System Owner/User Discovery', tactic: 'Discovery' },
+      'T1012': { name: 'Query Registry', tactic: 'Discovery' },
+      'T1021.002': { name: 'SMB/Windows Admin Shares', tactic: 'Lateral Movement' },
+      'T1021.001': { name: 'Remote Desktop Protocol', tactic: 'Lateral Movement' },
+      'T1210': { name: 'Exploitation of Remote Services', tactic: 'Lateral Movement' },
+      'T1041': { name: 'Exfiltration Over C2 Channel', tactic: 'Exfiltration' },
+      'T1567.002': { name: 'Exfiltration to Cloud Storage', tactic: 'Exfiltration' },
+      'T1489': { name: 'Service Stop', tactic: 'Impact' },
+      'T1486': { name: 'Data Encrypted for Impact', tactic: 'Impact' },
+      'T1490': { name: 'Inhibit System Recovery', tactic: 'Impact' }
+    };
+
+    const demoMasterCoverage = [
+      { product: 'FSM', tactic: 'Execution', technique_id: 'T1059.001', technique_name: 'PowerShell', coverage_score: 5, raw_count: 73, note: 'FSM - Suspicious PowerShell' },
+      { product: 'FEDR', tactic: 'Execution', technique_id: 'T1059', technique_name: 'Command and Scripting Interpreter', coverage_score: 1, raw_count: 1, note: 'FEDR - Suspicious Script Execution' },
+      { product: 'FSM', tactic: 'Discovery', technique_id: 'T1046', technique_name: 'Network Service Discovery', coverage_score: 5, raw_count: 13, note: 'FSM - TCP/UDP scans and Nmap' },
+      { product: 'FNDR', tactic: 'Discovery', technique_id: 'T1046', technique_name: 'Network Service Discovery', coverage_score: 3, raw_count: 1, note: 'FNDR - Strong scan visibility' },
+      { product: 'FEDR', tactic: 'Defense Evasion', technique_id: 'T1055.012', technique_name: 'Process Hollowing', coverage_score: 1, raw_count: 1, note: 'Ransomware Prevention - Process Hollowing' },
+      { product: 'FEDR', tactic: 'Defense Evasion', technique_id: 'T1055', technique_name: 'Process Injection', coverage_score: 1, raw_count: 1, note: 'Exfiltration Prevention - Process Injection' },
+      { product: 'FSM', tactic: 'Lateral Movement', technique_id: 'T1021.002', technique_name: 'SMB/Windows Admin Shares', coverage_score: 5, raw_count: 14, note: 'FSM - PsExec and ADMIN$' },
+      { product: 'FEDR', tactic: 'Lateral Movement', technique_id: 'T1021.002', technique_name: 'SMB/Windows Admin Shares', coverage_score: 1, raw_count: 1, note: 'FEDR - PsExec behavior' },
+      { product: 'FNDR', tactic: 'Lateral Movement', technique_id: 'T1021.002', technique_name: 'SMB/Windows Admin Shares', coverage_score: 2, raw_count: 1, note: 'FNDR - SMB anomaly visibility' },
+      { product: 'FEDR', tactic: 'Impact', technique_id: 'T1486', technique_name: 'Data Encrypted for Impact', coverage_score: 1, raw_count: 1, note: 'Ransomware Prevention - File Encryptor' },
+      { product: 'FSM', tactic: 'Initial Access', technique_id: 'T1566.001', technique_name: 'Phishing - Attachment', coverage_score: 5, raw_count: 13, note: 'FSM - Office macro and attachment abuse' },
+      { product: 'FEDR', tactic: 'Credential Access', technique_id: 'T1056.001', technique_name: 'Keylogging', coverage_score: 1, raw_count: 1, note: 'Exfiltration Prevention - Keylogging Activity Detected' }
+    ];
+
+    const state = {
+      mode: 'all',
+      search: '',
+      tactic: 'all',
+      sort: 'combined',
+      rows: [...demoMasterCoverage],
+      grouped: null,
+      selected: null,
+      parentCatalog: []
+    };
+
+    const matrixEl = document.getElementById('matrix');
+    const tacticFilterEl = document.getElementById('tacticFilter');
+    const searchInputEl = document.getElementById('searchInput');
+    const sortModeEl = document.getElementById('sortMode');
+    const fileInputEl = document.getElementById('fileInput');
+    const drawerEl = document.getElementById('drawer');
+    const overlayEl = document.getElementById('overlay');
+    const drawerTitleEl = document.getElementById('drawerTitle');
+    const drawerSubtitleEl = document.getElementById('drawerSubtitle');
+    const drawerBodyEl = document.getElementById('drawerBody');
+    const matrixWrapEl = document.querySelector('.matrix-wrap');
+    const matrixScrollTopEl = document.getElementById('matrixScrollTop');
+    const matrixScrollSyncEl = document.getElementById('matrixScrollSync');
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+      function bandClass(count) {
+        if (count >= 10) return 'var(--good-5)';   // strong green
+        if (count >= 5)  return 'var(--good-4)';   // green
+        if (count >= 2)  return 'var(--good-3)';   // teal
+        if (count >= 1)  return 'var(--good-2)';   // dim teal
+        return 'var(--good-1)';                   // gray
+      }
+
+    function rowTrack(value, kind, max) {
+      const safeMax = Math.max(max || 1, 1);
+      const pct = clamp((value / safeMax) * 100, 0, 100);
+      return `<div class="track"><div class="fill ${kind}" style="width:${pct}%"></div></div>`;
+    }
+
+function normalizeRow(row) {
+  const techniqueId = row.technique_id || row.techniqueID || row.tid || null;
+  if (!techniqueId) return null;
+
+  const product = (row.product || '').toUpperCase();
+  const normalizedTechniqueId = String(techniqueId).trim();
+  const isSubtechnique = normalizedTechniqueId.includes('.');
+
+  const cat = techniqueCatalog[normalizedTechniqueId] || {};
+
+  const fallbackParentTechniqueId = isSubtechnique
+    ? normalizedTechniqueId.split('.')[0]
+    : normalizedTechniqueId;
+
+  const parentTechniqueId =
+    row.parent_technique_id ||
+    row.parentTechniqueId ||
+    fallbackParentTechniqueId;
+
+  const parentCat = techniqueCatalog[parentTechniqueId] || {};
+
+  const techniqueName =
+    row.technique_name ||
+    row.name ||
+    cat.name ||
+    normalizedTechniqueId;
+
+  const parentTechniqueName =
+    row.parent_technique_name ||
+    row.parentTechniqueName ||
+    parentCat.name ||
+    (isSubtechnique ? techniqueName : techniqueName);
+
+  return {
+    product,
+    technique_id: normalizedTechniqueId,
+    parent_technique_id: parentTechniqueId,
+    parent_technique_name: parentTechniqueName,
+    is_subtechnique: isSubtechnique,
+    technique_name: techniqueName,
+    tactic: row.tactic || cat.tactic || parentCat.tactic || 'Unknown',
+    coverage_score: Number(row.coverage_score ?? row.score ?? 0),
+    raw_count: Number(row.raw_count ?? row.coverage_score ?? row.score ?? 0),
+    note: row.note || row.comment || row.description || '',
+    description: row.description || '',
+    coverage_type: row.coverage_type || '',
+    confidence: row.confidence || '',
+    source_ref: row.source_ref || ''
+  };
+}
+
+  function buildParentCatalogFromMitreLookup(lookup) {
+  const parents = [];
+
+      for (const [techniqueId, item] of Object.entries(lookup || {})) {
+        if (techniqueId.includes('.')) continue;
+
+        const tactic =
+          (item.tactics && item.tactics.length ? item.tactics[0] : null) ||
+          item.tactic ||
+          'Unknown';
+
+        parents.push({
+          technique_id: techniqueId,
+          technique_name: item.name || techniqueId,
+          tactic
+        });
+      }
+
+      parents.sort((a, b) => a.technique_id.localeCompare(b.technique_id));
+      return parents;
+    }
+
+function groupCoverage(rows) {
+  const normalized = rows.map(normalizeRow).filter(Boolean);
+  const techniqueNameIndex = new Map();
+
+  normalized.forEach(row => {
+    if (!techniqueNameIndex.has(row.technique_id)) {
+      techniqueNameIndex.set(row.technique_id, row.technique_name);
+    }
+  });
+
+  const map = new Map();
+
+  // Step 1: preload all ATT&CK parent techniques
+  (state.parentCatalog || []).forEach(parent => {
+    map.set(parent.technique_id, {
+      technique_id: parent.technique_id,
+      technique_name: parent.technique_name,
+      tactic: parent.tactic || 'Unknown',
+      products: Object.fromEntries(Object.keys(PRODUCT_CONFIG).map(p => [p, 0])),
+      combined: 0,
+      notes: [],
+      sources: [],
+      subtechniques: new Map(),
+      mapping_count: 0
+    });
+  });
+
+  // Step 2: merge mapped rows into those parent buckets
+  normalized.forEach(row => {
+    const key = row.parent_technique_id;
+
+    if (!map.has(key)) {
+      map.set(key, {
+        technique_id: row.parent_technique_id,
+        technique_name: row.parent_technique_name || techniqueNameIndex.get(row.parent_technique_id) || row.technique_name,
+        tactic: row.tactic || 'Unknown',
+        products: Object.fromEntries(Object.keys(PRODUCT_CONFIG).map(p => [p, 0])),
+        combined: 0,
+        notes: [],
+        sources: [],
+        subtechniques: new Map(),
+        mapping_count: 0
+      });
+    }
+
+    const item = map.get(key);
+
+    item.technique_name = row.parent_technique_name || item.technique_name;
+
+    if (item.tactic === 'Unknown' && row.tactic) {
+      item.tactic = row.tactic;
+    }
+
+    if (item.products[row.product] !== undefined) {
+      item.products[row.product] += 1;
+    } else {
+      item.products[row.product] = 1;
+    }
+
+    item.sources.push(row);
+    item.mapping_count += 1;
+    if (row.note) item.notes.push(row.note);
+
+    if (row.is_subtechnique) {
+      if (!item.subtechniques.has(row.technique_id)) {
+        item.subtechniques.set(row.technique_id, {
+          technique_id: row.technique_id,
+          technique_name: row.technique_name,
+          tactic: row.tactic,
+          sources: []
+        });
+      }
+      item.subtechniques.get(row.technique_id).sources.push(row);
+    }
+  });
+
+  const items = [...map.values()].map(item => ({
+    ...item,
+    combined: Object.values(item.products).reduce((sum, n) => sum + n, 0),
+    note: item.notes[0] || '',
+    subtechniques: [...item.subtechniques.values()].sort((a, b) => a.technique_id.localeCompare(b.technique_id))
+  }));
+
+  const tacticBuckets = new Map();
+  ATTACK_TACTICS.forEach(t => tacticBuckets.set(t, []));
+  items.forEach(item => {
+    if (!tacticBuckets.has(item.tactic)) tacticBuckets.set(item.tactic, []);
+    tacticBuckets.get(item.tactic).push(item);
+  });
+
+  return tacticBuckets;
+}
+
+    function activeModeScore(item) {
+      if (state.mode === 'combined' || state.mode === 'all' || state.mode === 'gaps' || state.mode === 'nocoverage') {
+        return item.combined;
+      }
+
+      const productKey = state.mode.toUpperCase();
+      return item.products?.[productKey] || 0;
+    }
+
+    function applyFilters(grouped) {
+      const q = state.search.trim().toLowerCase();
+      const filtered = new Map();
+
+      for (const [tactic, items] of grouped.entries()) {
+        let next = [...items];
+
+        if (state.tactic !== 'all' && tactic !== state.tactic) next = [];
+
+        if (q) {
+          next = next.filter(item => {
+            const values = [
+              item.technique_id,
+              item.technique_name,
+              item.note,
+              ...item.subtechniques.flatMap(sub => [sub.technique_id, sub.technique_name]),
+              ...item.sources.map(src => src.note)
+            ];
+            return values.filter(Boolean).some(value => String(value).toLowerCase().includes(q));
+          });
+        }
+
+        if (state.mode === 'all') {
+          // show everything, including zero coverage
+          next = next;
+        } else if (state.mode === 'gaps') {
+          next = next.filter(item => item.combined < 4 && item.combined > 0);
+        } else if (state.mode === 'nocoverage') {
+          next = next.filter(item => item.combined === 0);
+        } else {
+          next = next.filter(item => activeModeScore(item) > 0);
+        }
+
+        next.sort((a, b) => {
+          if (state.sort === 'name') return a.technique_name.localeCompare(b.technique_name);
+          if (state.sort === 'id') return a.technique_id.localeCompare(b.technique_id);
+          if (state.sort === 'mappings') return b.mapping_count - a.mapping_count || a.technique_name.localeCompare(b.technique_name);
+          return activeModeScore(b) - activeModeScore(a) || a.technique_name.localeCompare(b.technique_name);
+        });
+
+        filtered.set(tactic, next);
+      }
+
+      return filtered;
+    }
+
+    function visibleScore(item, mode) {
+      if (mode === 'fsm') return item.products.FSM || 0;
+      if (mode === 'fedr') return item.products.FEDR || 0;
+      if (mode === 'fndr') return item.products.FNDR || 0;
+      return item.combined;
+    }
+
+    function getVisibleMaxima(items) {
+      const result = {
+        combined: Math.max(1, ...items.map(x => x.combined || 0))
+      };
+
+      Object.keys(PRODUCT_CONFIG).forEach(product => {
+        result[product] = Math.max(1, ...items.map(x => x.products?.[product] || 0));
+      });
+
+      return result;
+    }
+
+    function renderStats(filtered) {
+      let techniques = 0;
+      let tacticCount = 0;
+      let mappings = 0;
+
+      for (const [, items] of filtered.entries()) {
+        if (items.length > 0) {
+          tacticCount += 1;
+          techniques += items.length;
+          mappings += items.reduce((sum, item) => sum + item.mapping_count, 0);
+        }
+      }
+
+      document.getElementById('stat-techniques').textContent = techniques;
+      document.getElementById('stat-tactics').textContent = tacticCount;
+      document.getElementById('stat-mappings').textContent = mappings;
+    }
+
+    function syncHorizontalScrollbars() {
+      requestAnimationFrame(() => {
+        matrixScrollSyncEl.style.width = `${matrixEl.scrollWidth}px`;
+      });
+    }
+
+    function renderMatrix() {
+      state.grouped = groupCoverage(state.rows);
+      const filtered = applyFilters(state.grouped);
+      const allVisibleItems = [...filtered.values()].flat();
+      const maxima = getVisibleMaxima(allVisibleItems);
+      renderStats(filtered);
+
+      const visibleTactics = [...filtered.entries()].filter(([, items]) => items.length > 0);
+      matrixEl.style.gridTemplateColumns = `repeat(${visibleTactics.length || 1}, 250px)`;
+
+      if (!visibleTactics.length) {
+        matrixEl.innerHTML = `<div class="empty">No techniques match the current filter.</div>`;
+        syncHorizontalScrollbars();
+        return;
+      }
+
+      matrixEl.innerHTML = visibleTactics.map(([tactic, items]) => `
+        <section class="tactic">
+          <div class="tactic-header">
+            <h2>${tactic}</h2>
+            <div class="meta">
+              <span>${items.length} techniques</span>
+            </div>
+          </div>
+          <div class="tech-list">
+            ${items.map(item => {
+              const badgeColor = bandClass(visibleScore(item, state.mode));
+              const subCount = item.subtechniques.length;
+              return `
+                <article class="tech" data-technique-id="${item.technique_id}">
+                  <div class="tech-head">
+                    <div>
+                      <div class="tech-name">${item.technique_name}</div>
+                      <span class="tech-id">${item.technique_id}</span>
+                    </div>
+                    <div class="combined-badge" style="background:${badgeColor}">${visibleScore(item, state.mode)}</div>
+                  </div>
+                  <div class="score-grid">
+                    ${(state.mode === 'all' || state.mode === 'fsm') ? `<div class="score-row"><div class="score-label">FSM</div>${rowTrack(item.products.FSM || 0, 'fsm', maxima.FSM)}<div>${item.products.FSM || 0}</div></div>` : ''}
+                    ${(state.mode === 'all' || state.mode === 'fedr') ? `<div class="score-row"><div class="score-label">FEDR</div>${rowTrack(item.products.FEDR || 0, 'fedr', maxima.FEDR)}<div>${item.products.FEDR || 0}</div></div>` : ''}
+                    ${(state.mode === 'all' || state.mode === 'fndr') ? `<div class="score-row"><div class="score-label">FNDR</div>${rowTrack(item.products.FNDR || 0, 'fndr', maxima.FNDR)}<div>${item.products.FNDR || 0}</div></div>` : ''}
+                    ${(state.mode === 'all' || state.mode === 'combined' || state.mode === 'gaps') ? `<div class="score-row"><div class="score-label">ALL</div>${rowTrack(item.combined, 'combined', maxima.combined)}<div>${item.combined}</div></div>` : ''}
+                  </div>
+                  <div class="subtech-count">${item.mapping_count} mapped rules/policies${subCount ? ` • ${subCount} sub-techniques` : ''}</div>
+                  <div class="tech-note">${item.note || 'No note available.'}</div>
+                </article>
+              `;
+            }).join('')}
+          </div>
+        </section>
+      `).join('');
+
+      matrixEl.querySelectorAll('.tech').forEach(card => {
+        card.addEventListener('click', () => openDrawer(card.dataset.techniqueId));
+      });
+
+      syncHorizontalScrollbars();
+    }
+
+    function populateTacticFilter() {
+      const current = tacticFilterEl.value || 'all';
+      tacticFilterEl.innerHTML = `<option value="all">All tactics</option>` + ATTACK_TACTICS.map(t => `<option value="${t}">${t}</option>`).join('');
+      tacticFilterEl.value = ATTACK_TACTICS.includes(current) ? current : 'all';
+    }
+
+    function openDrawer(techniqueId) {
+      if (!state.grouped) return;
+
+      let item = null;
+      const allItems = [];
+
+      for (const [, items] of state.grouped.entries()) {
+        allItems.push(...items);
+        const found = items.find(x => x.technique_id === techniqueId);
+        if (found) item = found;
+      }
+
+      if (!item) return;
+
+      const maxima = getVisibleMaxima(allItems);
+
+      const groupedSources = {
+        FSM: item.sources.filter(src => src.product === 'FSM'),
+        FEDR: item.sources.filter(src => src.product === 'FEDR'),
+        FNDR: item.sources.filter(src => src.product === 'FNDR')
+      };
+
+      drawerTitleEl.textContent = item.technique_name;
+      drawerSubtitleEl.textContent = `${item.technique_id} • ${item.tactic}`;
+
+      drawerBodyEl.innerHTML = `
+        <section class="detail-card">
+          <h4>Mapped entries summary</h4>
+          <div class="detail-grid">
+            <div class="detail-row"><div class="detail-label">FSM</div>${rowTrack(item.products.FSM || 0, 'fsm', maxima.FSM)}<div>${item.products.FSM || 0}</div></div>
+            <div class="detail-row"><div class="detail-label">FEDR</div>${rowTrack(item.products.FEDR || 0, 'fedr', maxima.FEDR)}<div>${item.products.FEDR || 0}</div></div>
+            <div class="detail-row"><div class="detail-label">FNDR</div>${rowTrack(item.products.FNDR || 0, 'fndr', maxima.FNDR)}<div>${item.products.FNDR || 0}</div></div>
+            <div class="detail-row"><div class="detail-label">ALL</div>${rowTrack(item.combined, 'combined', maxima.combined)}<div>${item.combined}</div></div>
+          </div>
+        </section>
+
+        <section class="detail-card">
+          <h4>Technique overview</h4>
+          <div class="pill-row">
+            <div class="pill">${item.mapping_count} mapped rules/policies</div>
+            <div class="pill">${item.subtechniques.length} sub-techniques</div>
+            <div class="pill">${item.sources.length} source rows</div>
+          </div>
+          <div class="detail-note" style="margin-top:10px;">${item.note || 'No note available.'}</div>
+        </section>
+
+        <section class="detail-card">
+          <h4>Sub-techniques</h4>
+          ${item.subtechniques.length ? `
+            <div class="sub-list">
+              ${item.subtechniques.map(sub => `
+                <div class="sub-item">
+                  <div class="sub-title">
+                    <span>${sub.technique_name}</span>
+                    <span>${sub.technique_id}</span>
+                  </div>
+                  <div class="sub-meta">${sub.sources.length} mapped rule/policy </div>
+                </div>
+              `).join('')}
+            </div>
+          ` : `<div class="detail-note">No sub-techniques mapped for this parent technique.</div>`}
+        </section>
+
+        <section class="detail-card">
+          <h4>Mapped entries by product</h4>
+          ${['FSM', 'FEDR', 'FNDR'].map(product => `
+            <div style="margin-top:${product === 'FSM' ? '0' : '12px'};">
+              <div class="pill" style="margin-bottom:8px; display:inline-block;">${product} - ${groupedSources[product].length}</div>
+              ${groupedSources[product].length ? `
+                <div class="source-list">
+                  ${groupedSources[product].map(src => `
+                  <div class="source-item">
+                    <div class="source-top">
+                      <strong>${src.technique_id} - ${src.technique_name}</strong>
+                    </div>
+                    <div class="source-note">
+                      ${src.note || src.description || 'No rule/policy name'}
+                    </div>
+                  </div>
+                  `).join('')}
+                </div>
+              ` : `<div class="detail-note">No mapped entries in this product.</div>`}
+            </div>
+          `).join('')}
+        </section>
+      `;
+
+      drawerEl.classList.add('open');
+      overlayEl.classList.add('open');
+      state.selected = techniqueId;
+    }
+
+    function closeDrawer() {
+      drawerEl.classList.remove('open');
+      overlayEl.classList.remove('open');
+      state.selected = null;
+    }
+
+    function handleModeClick(mode) {
+      state.mode = mode;
+      document.querySelectorAll('.chip').forEach(btn => btn.classList.toggle('active', btn.dataset.mode === mode));
+      renderMatrix();
+    }
+
+    async function tryLoadDefaultMasterFile() {
+      try {
+        const res = await fetch('master_coverage.json');
+        if (!res.ok) return;
+        const payload = await res.json();
+        if (Array.isArray(payload) && payload.length) {
+          state.rows = payload;
+          renderMatrix();
+        }
+      } catch (err) {
+        // silent fallback when opening from file:// or when master_coverage.json is absent
+      }
+    }
+
+      async function tryLoadDefaultMitreLookup() {
+        try {
+          const res = await fetch('mitre_lookup_compiled.json');
+          if (!res.ok) return;
+          const payload = await res.json();
+          state.parentCatalog = buildParentCatalogFromMitreLookup(payload);
+          renderMatrix();
+        } catch (err) {
+          // silent fallback when file is absent or blocked
+        }
+      }
+
+    function handleFileUpload(file) {
+      const reader = new FileReader();
+      reader.onload = event => {
+        try {
+          const payload = JSON.parse(String(event.target.result || '[]'));
+          if (!Array.isArray(payload)) throw new Error('JSON root must be an array');
+          state.rows = payload;
+          closeDrawer();
+          renderMatrix();
+        } catch (err) {
+          alert('Could not read JSON file. Expected an array of normalized coverage rows.');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    document.getElementById('modeChips').querySelectorAll('.chip').forEach(btn => {
+      btn.addEventListener('click', () => handleModeClick(btn.dataset.mode));
+    });
+
+    searchInputEl.addEventListener('input', e => {
+      state.search = e.target.value;
+      renderMatrix();
+    });
+
+    tacticFilterEl.addEventListener('change', e => {
+      state.tactic = e.target.value;
+      renderMatrix();
+    });
+
+    sortModeEl.addEventListener('change', e => {
+      state.sort = e.target.value;
+      renderMatrix();
+    });
+
+    fileInputEl.addEventListener('change', e => {
+      const file = e.target.files && e.target.files[0];
+      if (file) handleFileUpload(file);
+    });
+
+    document.getElementById('closeDrawer').addEventListener('click', closeDrawer);
+    overlayEl.addEventListener('click', closeDrawer);
+
+    matrixScrollTopEl.addEventListener('scroll', () => {
+      matrixWrapEl.scrollLeft = matrixScrollTopEl.scrollLeft;
+    });
+
+    matrixWrapEl.addEventListener('scroll', () => {
+      matrixScrollTopEl.scrollLeft = matrixWrapEl.scrollLeft;
+    });
+
+    populateTacticFilter();
+    renderMatrix();
+    tryLoadDefaultMasterFile();
+    tryLoadDefaultMitreLookup();
+  </script>
+</body>
+</html>
