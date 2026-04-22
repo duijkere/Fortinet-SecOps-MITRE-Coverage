@@ -702,7 +702,7 @@
       view: 'coverage' // or 'hunting'
     };
 
-    const DATA_VERSION = '20260422-2';
+    const DATA_VERSION = Date.now();
     const matrixEl = document.getElementById('matrix');
     const tacticFilterEl = document.getElementById('tacticFilter');
     const searchInputEl = document.getElementById('searchInput');
@@ -1301,9 +1301,7 @@ function groupCoverage(rows) {
 
     async function tryLoadDefaultMasterFile() {
       try {
-        const res = await fetch(`master_coverage.json?v=${DATA_VERSION}`, {
-          cache: 'no-store'
-        });
+        const res = await fetch(`master_coverage.json?v=${DATA_VERSION}`, {cache: 'no-store'});
         if (!res.ok) return;
         const payload = await res.json();
         if (Array.isArray(payload) && payload.length) {
@@ -1316,9 +1314,7 @@ function groupCoverage(rows) {
 
       async function tryLoadDefaultMitreLookup() {
         try {
-          const res = await fetch(`mitre_lookup_compiled.json?v=${DATA_VERSION}`, {
-            cache: 'no-store'
-          });
+          const res = await fetch(`mitre_lookup_compiled.json?v=${DATA_VERSION}`, {cache: 'no-store'});
           if (!res.ok) return;
           const payload = await res.json();
           state.parentCatalog = buildParentCatalogFromMitreLookup(payload);
