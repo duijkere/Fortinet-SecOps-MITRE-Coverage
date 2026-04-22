@@ -307,6 +307,11 @@
       font-weight: 400;
     }
 
+    .tech-indirect-only {
+      border-style: dashed;
+      border-color: #3b82f6;
+    }
+
     .combined-badge {
       min-width: 34px;
       text-align: center;
@@ -594,13 +599,15 @@
           </label>
         </div>
 
+        <span id="viewBadge" class="pill" style="display:none;"></span>
+
         <div class="chips" id="modeChips">
           <button class="chip active" data-mode="all">All</button>
           <button class="chip" data-mode="fsm">FSM</button>
           <button class="chip" data-mode="fedr">FEDR</button>
           <button class="chip" data-mode="fndr">FNDR</button>
-          <button class="chip" data-mode="combined">Combined</button>
-          <button class="chip" data-mode="gaps">Show low coverage (&lt; 3)</button>
+          <button class="chip" data-mode="hunting">FEDR Threat Hunting </button>
+
           <button class="chip" data-mode="nocoverage">Show uncovered techniques</button>
         </div>
 
@@ -691,7 +698,8 @@
       rows: [...demoMasterCoverage],
       grouped: null,
       selected: null,
-      parentCatalog: []
+      parentCatalog: [],
+      view: 'coverage' // or 'hunting'
     };
 
     const matrixEl = document.getElementById('matrix');
@@ -767,9 +775,14 @@ function normalizeRow(row) {
     is_subtechnique: isSubtechnique,
     technique_name: techniqueName,
     tactic: row.tactic || cat.tactic || parentCat.tactic || 'Unknown',
+
+    // NEW
+    coverage_level: row.coverage_level || 'unknown',
+
     coverage_score: Number(row.coverage_score ?? row.score ?? 0),
     raw_count: Number(row.raw_count ?? row.coverage_score ?? row.score ?? 0),
-    note: row.note || row.comment || row.description || '',
+
+    note: row.note || '',
     description: row.description || '',
     coverage_type: row.coverage_type || '',
     confidence: row.confidence || '',
@@ -817,7 +830,7 @@ function groupCoverage(rows) {
       technique_id: parent.technique_id,
       technique_name: parent.technique_name,
       tactic: parent.tactic || 'Unknown',
-      products: Object.fromEntries(Object.keys(PRODUCT_CONFIG).map(p => [p, 0])),
+      products: {FSM: 0,FEDR: 0,FNDR: 0,FEDR_level: 'none'},
       combined: 0,
       notes: [],
       sources: [],
@@ -835,7 +848,7 @@ function groupCoverage(rows) {
         technique_id: row.parent_technique_id,
         technique_name: row.parent_technique_name || techniqueNameIndex.get(row.parent_technique_id) || row.technique_name,
         tactic: row.tactic || 'Unknown',
-        products: Object.fromEntries(Object.keys(PRODUCT_CONFIG).map(p => [p, 0])),
+        products: {FSM: 0,FEDR: 0,FNDR: 0,FEDR_level: 'none'},
         combined: 0,
         notes: [],
         sources: [],
@@ -852,10 +865,21 @@ function groupCoverage(rows) {
       item.tactic = row.tactic;
     }
 
-    if (item.products[row.product] !== undefined) {
-      item.products[row.product] += 1;
+    if (row.product === 'FEDR') {
+      const level = row.coverage_level || 'none';
+      const priority = { strong: 3, partial: 2, indirect: 1, none: 0 };
+
+      if (priority[level] > priority[item.products.FEDR_level]) {
+        item.products.FEDR_level = level;
+      }
+
+      item.products.FEDR =
+        item.products.FEDR_level === 'strong' ? 1 :
+        item.products.FEDR_level === 'partial' ? 0.5 :
+        item.products.FEDR_level === 'indirect' ? 0 : 0;
+
     } else {
-      item.products[row.product] = 1;
+      item.products[row.product] += 1;
     }
 
     item.sources.push(row);
@@ -875,12 +899,19 @@ function groupCoverage(rows) {
     }
   });
 
-  const items = [...map.values()].map(item => ({
-    ...item,
-    combined: Object.values(item.products).reduce((sum, n) => sum + n, 0),
-    note: item.notes[0] || '',
-    subtechniques: [...item.subtechniques.values()].sort((a, b) => a.technique_id.localeCompare(b.technique_id))
-  }));
+  const items = [...map.values()].map(item => {
+    const fedrScore =
+      item.products.FEDR_level === 'strong' ? 1 :
+      item.products.FEDR_level === 'partial' ? 0.5 :
+      0;
+
+    return {
+      ...item,
+      combined: (item.products.FSM || 0) + (item.products.FNDR || 0) + fedrScore,
+      note: item.notes[0] || '',
+      subtechniques: [...item.subtechniques.values()].sort((a, b) => a.technique_id.localeCompare(b.technique_id))
+    };
+  });
 
   const tacticBuckets = new Map();
   ATTACK_TACTICS.forEach(t => tacticBuckets.set(t, []));
@@ -892,7 +923,26 @@ function groupCoverage(rows) {
   return tacticBuckets;
 }
 
+    function getVisibleProductsForDrawer() {
+      if (state.view === 'hunting') return ['FEDR'];
+      if (state.mode === 'fsm') return ['FSM'];
+      if (state.mode === 'fedr') return ['FEDR'];
+      if (state.mode === 'fndr') return ['FNDR'];
+      return ['FSM', 'FEDR', 'FNDR'];
+    }
+
     function activeModeScore(item) {
+      if (state.mode === 'fedr') {
+        if (state.view === 'hunting') {
+          return item.products.FEDR_level === 'strong' ? 1 :
+                item.products.FEDR_level === 'partial' ? 0.5 :
+                item.products.FEDR_level === 'indirect' ? 0.25 : 0;
+        }
+
+        return item.products.FEDR_level === 'strong' ? 1 :
+              item.products.FEDR_level === 'partial' ? 0.5 : 0;
+      }
+
       if (state.mode === 'combined' || state.mode === 'all' || state.mode === 'gaps' || state.mode === 'nocoverage') {
         return item.combined;
       }
@@ -924,17 +974,38 @@ function groupCoverage(rows) {
         }
 
         if (state.mode === 'all') {
-          // show everything, including zero coverage
-          next = next;
+          next = next.filter(item => {
+            if (state.view === 'hunting') {
+              return item.combined > 0 || item.products.FEDR_level === 'indirect';
+            }
+            return item.combined > 0;
+          });
+
+        } else if (state.mode === 'fedr') {
+          next = next.filter(item => {
+            if (state.view === 'hunting') {
+              return ['strong', 'partial', 'indirect'].includes(item.products.FEDR_level);
+            }
+            return ['strong', 'partial'].includes(item.products.FEDR_level);
+          });
+
         } else if (state.mode === 'gaps') {
           next = next.filter(item => item.combined < 4 && item.combined > 0);
+
         } else if (state.mode === 'nocoverage') {
           next = next.filter(item => item.combined === 0);
+
         } else {
           next = next.filter(item => activeModeScore(item) > 0);
         }
 
         next.sort((a, b) => {
+          if (state.view === 'hunting') {
+            const aIndirectOnly = a.combined === 0 && a.products.FEDR_level === 'indirect';
+            const bIndirectOnly = b.combined === 0 && b.products.FEDR_level === 'indirect';
+            if (aIndirectOnly !== bIndirectOnly) return bIndirectOnly - aIndirectOnly;
+          }
+
           if (state.sort === 'name') return a.technique_name.localeCompare(b.technique_name);
           if (state.sort === 'id') return a.technique_id.localeCompare(b.technique_id);
           if (state.sort === 'mappings') return b.mapping_count - a.mapping_count || a.technique_name.localeCompare(b.technique_name);
@@ -997,6 +1068,14 @@ function groupCoverage(rows) {
       const maxima = getVisibleMaxima(allVisibleItems);
       renderStats(filtered);
 
+      const viewBadge = document.getElementById('viewBadge');
+        if (state.view === 'hunting') {
+          viewBadge.style.display = 'inline-flex';
+          viewBadge.textContent = 'Threat Hunting View - FEDR telemetry included';
+        } else {
+          viewBadge.style.display = 'none';
+        }
+           
       const visibleTactics = [...filtered.entries()].filter(([, items]) => items.length > 0);
       matrixEl.style.gridTemplateColumns = `repeat(${visibleTactics.length || 1}, 250px)`;
 
@@ -1018,8 +1097,9 @@ function groupCoverage(rows) {
             ${items.map(item => {
               const badgeColor = bandClass(visibleScore(item, state.mode));
               const subCount = item.subtechniques.length;
+              const isIndirectOnly = item.combined === 0 && item.products.FEDR_level === 'indirect';
               return `
-                <article class="tech" data-technique-id="${item.technique_id}">
+                <article class="tech ${isIndirectOnly ? 'tech-indirect-only' : ''}" data-technique-id="${item.technique_id}">
                   <div class="tech-head">
                     <div>
                       <div class="tech-name">${item.technique_name}</div>
@@ -1029,11 +1109,11 @@ function groupCoverage(rows) {
                   </div>
                   <div class="score-grid">
                     ${(state.mode === 'all' || state.mode === 'fsm') ? `<div class="score-row"><div class="score-label">FSM</div>${rowTrack(item.products.FSM || 0, 'fsm', maxima.FSM)}<div>${item.products.FSM || 0}</div></div>` : ''}
-                    ${(state.mode === 'all' || state.mode === 'fedr') ? `<div class="score-row"><div class="score-label">FEDR</div>${rowTrack(item.products.FEDR || 0, 'fedr', maxima.FEDR)}<div>${item.products.FEDR || 0}</div></div>` : ''}
+                    ${(state.mode === 'all' || state.mode === 'fedr') ? `<div class="score-row"><div class="score-label">FEDR</div>${rowTrack(item.products.FEDR || 0, 'fedr', 1)}<div>${item.products.FEDR_level === 'strong' ? 'S' :item.products.FEDR_level === 'partial' ? 'P' :item.products.FEDR_level === 'indirect' ? 'I' : '0'}</div></div>` : ''}
                     ${(state.mode === 'all' || state.mode === 'fndr') ? `<div class="score-row"><div class="score-label">FNDR</div>${rowTrack(item.products.FNDR || 0, 'fndr', maxima.FNDR)}<div>${item.products.FNDR || 0}</div></div>` : ''}
                     ${(state.mode === 'all' || state.mode === 'combined' || state.mode === 'gaps') ? `<div class="score-row"><div class="score-label">ALL</div>${rowTrack(item.combined, 'combined', maxima.combined)}<div>${item.combined}</div></div>` : ''}
                   </div>
-                  <div class="subtech-count">${item.mapping_count} mapped rules/policies${subCount ? ` • ${subCount} sub-techniques` : ''}</div>
+                  <div class="subtech-count">${item.mapping_count} mapped entries${subCount ? ` • ${subCount} sub-techniques` : ''}</div>
                   <div class="tech-note">${item.note || 'No note available.'}</div>
                 </article>
               `;
@@ -1071,11 +1151,61 @@ function groupCoverage(rows) {
 
       const maxima = getVisibleMaxima(allItems);
 
+      const visibleProducts = getVisibleProductsForDrawer();
+
+      const summaryRows = [];
+
+      const fedrLabel =
+        item.products.FEDR_level === 'strong' ? 'Strong' :
+        item.products.FEDR_level === 'partial' ? 'Partial' :
+        item.products.FEDR_level === 'indirect' ? 'Indirect' : '0';
+
+      if (visibleProducts.includes('FSM')) {
+        summaryRows.push(
+          `<div class="detail-row"><div class="detail-label">FSM</div>${rowTrack(item.products.FSM || 0, 'fsm', maxima.FSM)}<div>${item.products.FSM || 0}</div></div>`
+        );
+      }
+
+      if (visibleProducts.includes('FEDR')) {
+        summaryRows.push(
+          `<div class="detail-row"><div class="detail-label">FEDR</div>${rowTrack(item.products.FEDR || 0, 'fedr', 1)}
+            <div>${fedrLabel}</div>
+          </div>`
+        );
+      }
+
+      if (visibleProducts.includes('FNDR')) {
+        summaryRows.push(
+          `<div class="detail-row"><div class="detail-label">FNDR</div>${rowTrack(item.products.FNDR || 0, 'fndr', maxima.FNDR)}<div>${item.products.FNDR || 0}</div></div>`
+        );
+      }
+
+      if (visibleProducts.length > 1) {
+        summaryRows.push(
+          `<div class="detail-row"><div class="detail-label">ALL</div>${rowTrack(item.combined, 'combined', maxima.combined)}<div>${item.combined}</div></div>`
+        );
+      }
+
       const groupedSources = {
-        FSM: item.sources.filter(src => src.product === 'FSM'),
-        FEDR: item.sources.filter(src => src.product === 'FEDR'),
-        FNDR: item.sources.filter(src => src.product === 'FNDR')
+        FSM: visibleProducts.includes('FSM') ? item.sources.filter(src => src.product === 'FSM') : [],
+        FEDR: visibleProducts.includes('FEDR') ? item.sources.filter(src => src.product === 'FEDR') : [],
+        FNDR: visibleProducts.includes('FNDR') ? item.sources.filter(src => src.product === 'FNDR') : []
       };
+
+      const visibleSourceCount = visibleProducts.reduce((sum, product) => sum + groupedSources[product].length,0);
+
+      const visibleMappedEntries = visibleSourceCount;
+
+      const visibleSubtechniques = new Set();
+      visibleProducts.forEach(product => {
+        groupedSources[product].forEach(src => {
+          if (src.is_subtechnique) {
+            visibleSubtechniques.add(src.technique_id);
+          }
+        });
+      });
+      const visibleSubtechniqueCount = visibleSubtechniques.size;
+
 
       drawerTitleEl.textContent = item.technique_name;
       drawerSubtitleEl.textContent = `${item.technique_id} • ${item.tactic}`;
@@ -1083,23 +1213,18 @@ function groupCoverage(rows) {
       drawerBodyEl.innerHTML = `
         <section class="detail-card">
           <h4>Mapped entries summary</h4>
-          <div class="detail-grid">
-            <div class="detail-row"><div class="detail-label">FSM</div>${rowTrack(item.products.FSM || 0, 'fsm', maxima.FSM)}<div>${item.products.FSM || 0}</div></div>
-            <div class="detail-row"><div class="detail-label">FEDR</div>${rowTrack(item.products.FEDR || 0, 'fedr', maxima.FEDR)}<div>${item.products.FEDR || 0}</div></div>
-            <div class="detail-row"><div class="detail-label">FNDR</div>${rowTrack(item.products.FNDR || 0, 'fndr', maxima.FNDR)}<div>${item.products.FNDR || 0}</div></div>
-            <div class="detail-row"><div class="detail-label">ALL</div>${rowTrack(item.combined, 'combined', maxima.combined)}<div>${item.combined}</div></div>
-          </div>
+          <div class="detail-grid">${summaryRows.join('')}</div>
         </section>
 
-        <section class="detail-card">
-          <h4>Technique overview</h4>
-          <div class="pill-row">
-            <div class="pill">${item.mapping_count} mapped rules/policies</div>
-            <div class="pill">${item.subtechniques.length} sub-techniques</div>
-            <div class="pill">${item.sources.length} source rows</div>
-          </div>
-          <div class="detail-note" style="margin-top:10px;">${item.note || 'No note available.'}</div>
-        </section>
+       <section class="detail-card">
+        <h4>Technique overview</h4>
+        <div class="pill-row">
+          <div class="pill">${visibleMappedEntries} mapped entries</div>
+          <div class="pill">${visibleSubtechniqueCount} sub-techniques</div>
+          <div class="pill">${visibleSourceCount} source rows</div>
+        </div>
+        <div class="detail-note" style="margin-top:10px;">${item.note || 'No note available.'}</div>
+      </section>
 
         <section class="detail-card">
           <h4>Sub-techniques</h4>
@@ -1131,7 +1256,7 @@ function groupCoverage(rows) {
                       <strong>${src.technique_id} - ${src.technique_name}</strong>
                     </div>
                     <div class="source-note">
-                      ${src.note || src.description || 'No rule/policy name'}
+                      ${src.note || src.description || (src.product === 'FEDR' ? 'No direct detection - telemetry only' : 'No mapped entry detail')}
                     </div>
                   </div>
                   `).join('')}
@@ -1154,8 +1279,21 @@ function groupCoverage(rows) {
     }
 
     function handleModeClick(mode) {
-      state.mode = mode;
-      document.querySelectorAll('.chip').forEach(btn => btn.classList.toggle('active', btn.dataset.mode === mode));
+      if (mode === 'hunting') {
+        state.view = 'hunting';
+        state.mode = 'fedr';
+      } else {
+        state.view = 'coverage';
+        state.mode = mode;
+      }
+
+      document.querySelectorAll('.chip').forEach(btn => {
+        const isActive =
+          (btn.dataset.mode === 'hunting' && state.view === 'hunting') ||
+          (btn.dataset.mode === state.mode && state.view === 'coverage');
+        btn.classList.toggle('active', isActive);
+      });
+
       renderMatrix();
     }
 
@@ -1166,7 +1304,6 @@ function groupCoverage(rows) {
         const payload = await res.json();
         if (Array.isArray(payload) && payload.length) {
           state.rows = payload;
-          renderMatrix();
         }
       } catch (err) {
         // silent fallback when opening from file:// or when master_coverage.json is absent
@@ -1179,7 +1316,6 @@ function groupCoverage(rows) {
           if (!res.ok) return;
           const payload = await res.json();
           state.parentCatalog = buildParentCatalogFromMitreLookup(payload);
-          renderMatrix();
         } catch (err) {
           // silent fallback when file is absent or blocked
         }
@@ -1237,9 +1373,12 @@ function groupCoverage(rows) {
     });
 
     populateTacticFilter();
-    renderMatrix();
-    tryLoadDefaultMasterFile();
-    tryLoadDefaultMitreLookup();
+
+    (async () => {
+      await tryLoadDefaultMitreLookup();   // parent techniques first
+      await tryLoadDefaultMasterFile();    // mapped rows second
+      renderMatrix();                      // render once, after both are loaded
+    })();
   </script>
 </body>
 </html>
