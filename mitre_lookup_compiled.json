@@ -68,7 +68,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--01a5a209-b94c-450b-b7f9-946497d91055",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may abuse Windows Management Instrumentation (WMI) to execute malicious commands and payloads."
   },
   "T1113": {
     "name": "Screen Capture",
@@ -79,7 +80,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--0259baeb-9f63-4c69-bf10-eb038c390688",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to take screen captures of the desktop to gather information over the course of an operation."
   },
   "T1027.011": {
     "name": "Fileless Storage",
@@ -102,7 +104,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--03259939-0b57-482f-8eb5-87c0e0d54334",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may use scripts automatically executed at boot or logon initialization to establish persistence.(Citation: M."
   },
   "T1557": {
     "name": "Adversary-in-the-Middle",
@@ -114,7 +117,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--035bb001-ab69-4a0b-9f6c-2de8b09e1b9d",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to position themselves between two or more networked devices using an adversary-in-the-middle (A."
   },
   "T1033": {
     "name": "System Owner/User Discovery",
@@ -125,7 +129,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--03d7999c-1f4c-42cc-8373-e7690d318104",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to identify the primary user, currently logged in user, set of users that commonly uses a system."
   },
   "T1583": {
     "name": "Acquire Infrastructure",
@@ -136,7 +141,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--0458aab9-ad42-4eac-9e22-706a95bafee2",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Obtain servers, domains, or other infrastructure for targeting purposes"
   },
   "T1218.011": {
     "name": "Rundll32",
@@ -158,7 +164,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--0470e792-32f8-46b0-a351-652bc35e9336",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to discover containers and other resources that are available within a containers environment."
   },
   "T1583.007": {
     "name": "Serverless",
@@ -226,7 +233,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--09312b1a-c3c6-4b45-9844-3ccc78e5d82f",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Gathering administrative and configuration details about host systems"
   },
   "T1596.003": {
     "name": "Digital Certificates",
@@ -315,7 +323,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--0a3ead4e-6d47-4ccb-854c-a6a4f9d96b22",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Dumping credentials from OS caches and memory"
   },
   "T1129": {
     "name": "Shared Modules",
@@ -326,7 +335,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--0a5231ec-41af-4a35-83d0-6bdf11f28c65",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may execute malicious payloads via loading shared modules."
   },
   "T1602": {
     "name": "Data from Configuration Repository",
@@ -337,7 +347,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--0ad7bc5c-235a-4048-944b-3b286676cb74",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may collect data related to managed devices from configuration repositories."
   },
   "T1561.002": {
     "name": "Disk Structure Wipe",
@@ -394,7 +405,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--0c8ab3eb-df48-4b9c-ace7-beacaac81cc5",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may directly access a volume to bypass file access controls and file system monitoring."
   },
   "T1588.007": {
     "name": "Artificial Intelligence",
@@ -416,7 +428,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--0ce73446-8722-4086-9d43-514f1d0f669e",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to modify hierarchical structures in infrastructure-as-a-service (IaaS) environments in order to."
   },
   "T1564.008": {
     "name": "Email Hiding Rules",
@@ -482,7 +495,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--0f20e3cb-245b-4a61-8a91-2d93f7cb0e9b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may use rootkits to hide the presence of programs, files, network connections, services, drivers, and other."
   },
   "T1546.013": {
     "name": "PowerShell Profile",
@@ -538,7 +552,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--1035cdf2-3e5f-446f-a7a7-e8f6d7925967",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "An adversary can leverage a computer's peripheral devices (e.g., microphones and webcams) or applications (e.g., voice a."
   },
   "T1543": {
     "name": "Create or Modify System Process",
@@ -550,7 +565,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--106c0cf6-bf73-4601-9aa8-0945c2715ec5",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Creating or modifying background processes to repeatedly execute payloads"
   },
   "T1133": {
     "name": "External Remote Services",
@@ -562,7 +578,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--10d51417-ee35-4589-b1ff-b6df1c334e8d",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Leveraging gateways like VPNs to access internal network resources"
   },
   "T1546.006": {
     "name": "LC_LOAD_DYLIB Addition",
@@ -585,7 +602,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--10ffac09-e42d-4f56-ab20-db94c67d76ff",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "An adversary may steal web application or service session cookies and use them to gain access to web applications or Int."
   },
   "T1053.007": {
     "name": "Container Orchestration Job",
@@ -688,7 +706,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--144e007b-e638-431d-a894-45d90c54ab90",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "An adversary may attempt to modify a cloud account's compute service infrastructure to evade defenses."
   },
   "T1584.008": {
     "name": "Network Devices",
@@ -721,7 +740,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--15dbf668-795c-41e6-8219-f0447c0e64ce",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to discover group and permission settings."
   },
   "T1114": {
     "name": "Email Collection",
@@ -732,7 +752,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--1608f3e1-598a-42f4-a01a-2e252e81728f",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may target user email to collect sensitive information."
   },
   "T1003.002": {
     "name": "Security Account Manager",
@@ -777,7 +798,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--16cdd21f-da65-4e4f-bc04-dd7d198c7b26",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Searching websites and social media for victim-related targeting information"
   },
   "T1069.003": {
     "name": "Cloud Groups",
@@ -867,7 +889,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--1988cc35-ced8-4dad-b2d1-7628488fa967",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may wipe or corrupt raw disk data on specific systems or in large numbers in a network to interrupt availabi."
   },
   "T1071.004": {
     "name": "DNS",
@@ -911,7 +934,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--1b20efbf-8063-4fc3-a07d-b575318a301b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may gather information on Group Policy settings to identify paths for privilege escalation, security measure."
   },
   "T1542.003": {
     "name": "Bootkit",
@@ -934,7 +958,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--1b7ba276-eedc-4951-a762-0ceea2c030ec",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may search connected removable media on computers they have compromised to find files of interest."
   },
   "T1218.013": {
     "name": "Mavinject",
@@ -1034,7 +1059,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--1ecb2399-e8ba-4f6b-8ba7-5c27d49405cf",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Automatically execute programs during system boot or logon"
   },
   "T1003.004": {
     "name": "LSA Secrets",
@@ -1056,7 +1082,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--1f9012ef-1e10-4e48-915e-e03563435fe8",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may compromise a network device’s encryption capability in order to bypass encryption that would otherwise p."
   },
   "T1606.002": {
     "name": "SAML Tokens",
@@ -1089,7 +1116,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--20fb2507-d71c-455d-9b6d-6104461cf26b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may stop or disable services on a system to render those services unavailable to legitimate users."
   },
   "T1587.001": {
     "name": "Malware",
@@ -1111,7 +1139,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--215d9700-5881-48b8-8265-6449dbb7195d",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to enumerate local device drivers on a victim host."
   },
   "T1087.002": {
     "name": "Domain Account",
@@ -1145,7 +1174,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--22905430-4901-4c2a-84f6-98243cb173f8",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to hide artifacts associated with their behaviors to evade detection."
   },
   "T1559.002": {
     "name": "Dynamic Data Exchange",
@@ -1211,7 +1241,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--246fd3c7-f5e3-466d-8787-4c13d9e3b61c",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may deliver payloads to remote systems by adding content to shared storage locations, such as network drive."
   },
   "T1484.002": {
     "name": "Trust Modification",
@@ -1415,7 +1446,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--2c4d4e92-0ccf-4a97-b54c-86d662988a53",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may leverage Microsoft Office-based applications for persistence between startups."
   },
   "T1218.004": {
     "name": "InstallUtil",
@@ -1529,7 +1561,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--30208d3e-0d6b-43c8-883e-44462a514619",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Using automated techniques to search for and copy data"
   },
   "T1115": {
     "name": "Clipboard Data",
@@ -1540,7 +1573,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--30973a08-aed9-4edf-8604-9084ce1b5c4f",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may collect data stored in the clipboard from users copying information within or between applications."
   },
   "T1003.007": {
     "name": "Proc Filesystem",
@@ -1595,7 +1629,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--31e5011f-090e-45be-9bb6-17a1c5e8219b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may abuse ESXi administration services to execute commands on guest machines hosted within an ESXi virtual e."
   },
   "T1608.004": {
     "name": "Drive-by Target",
@@ -1617,7 +1652,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--322bad5a-1c49-4d23-ab79-76d641794afa",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may try to gather information about registered local system services."
   },
   "T1040": {
     "name": "Network Sniffing",
@@ -1629,7 +1665,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--3257eb21-f9a7-4430-8de1-d8b6e288f529",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may passively sniff network traffic to capture information about an environment, including authentication ma."
   },
   "T1553.002": {
     "name": "Code Signing",
@@ -1651,7 +1688,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--3298ce88-1628-43b1-87d9-0b5336b193d7",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may access data from cloud storage.\n\nMany IaaS providers offer solutions for online data object storage such."
   },
   "T1565.003": {
     "name": "Runtime Data Manipulation",
@@ -1684,7 +1722,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--3489cfc5-640f-4bb3-a103-9137b97de79f",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may look for folders and drives shared on remote systems as a means of identifying sources of information to."
   },
   "T1120": {
     "name": "Peripheral Device Discovery",
@@ -1695,7 +1734,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--348f1eef-964b-4eb6-bb53-69b3dcb0c643",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to gather information about attached peripheral devices and components connected to a computer s."
   },
   "T1036.009": {
     "name": "Break Process Trees",
@@ -1772,7 +1812,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--354a7f88-63fb-41b5-a801-ce3b377b36f1",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Gathering detailed information about operating systems and hardware"
   },
   "T1071": {
     "name": "Application Layer Protocol",
@@ -1783,7 +1824,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--355be19c-ffc9-46d5-8d50-d6a036c675b6",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Using standard protocols to blend malicious communication with traffic"
   },
   "T1574.014": {
     "name": "AppDomainManager",
@@ -1832,7 +1874,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--35dd844a-b219-4e2b-a6bb-efa9a75995a9",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Abusing scheduling functionality to facilitate recurring malicious execution"
   },
   "T1218.007": {
     "name": "Msiexec",
@@ -1911,7 +1954,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--389735f1-f21c-4208-b8f0-f8031e7169b8",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may abuse software extensions to establish persistent access to victim systems."
   },
   "T1499.002": {
     "name": "Service Exhaustion Flood",
@@ -1944,7 +1988,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--391d824f-0ef1-47a0-b0ee-c59a75e27670",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Interacting with native OS APIs to execute malicious behaviors"
   },
   "T1558.005": {
     "name": "Ccache Files",
@@ -2032,7 +2077,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--3b0e52ce-517a-4614-a523-1bd5deef6c5e",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may abuse utilities that allow for command execution to bypass security restrictions that limit the use of c."
   },
   "T1091": {
     "name": "Replication Through Removable Media",
@@ -2044,7 +2090,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--3b744087-9945-4a6f-91e8-9dbceda417a4",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Moving onto systems by copying malware to removable media"
   },
   "T1005": {
     "name": "Data from Local System",
@@ -2055,7 +2102,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--3c4a2599-71ee-4405-ba1e-0e28414b4bc5",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Searching local sources to find files and sensitive data"
   },
   "T1140": {
     "name": "Deobfuscate/Decode Files or Information",
@@ -2066,7 +2114,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may use [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027) to hide artifacts of an."
   },
   "T1137.005": {
     "name": "Outlook Rules",
@@ -2088,7 +2137,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--3d333250-30e4-4a82-9edc-756c68afc529",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Maliciously modifying victim components to disable or hinder defenses"
   },
   "T1586.003": {
     "name": "Cloud Accounts",
@@ -2144,7 +2194,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--3f18edba-28f4-4bb9-82c3-8aa60dcac5f7",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Manipulating products or delivery mechanisms prior to consumer receipt"
   },
   "T1190": {
     "name": "Exploit Public-Facing Application",
@@ -2155,7 +2206,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Exploiting weaknesses in Internet-facing systems to gain access"
   },
   "T1558": {
     "name": "Steal or Forge Kerberos Tickets",
@@ -2166,7 +2218,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--3fc01293-ef5e-41c6-86ce-61f10706b64a",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to subvert Kerberos authentication by stealing or forging Kerberos tickets to enable [Pass the T."
   },
   "T1555": {
     "name": "Credentials from Password Stores",
@@ -2177,7 +2230,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--3fc9b85a-2862-4363-a64d-d692e3ffbee0",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may search for common password storage locations to obtain user credentials.(Citation: F-Secure The Dukes) P."
   },
   "T1567": {
     "name": "Exfiltration Over Web Service",
@@ -2188,7 +2242,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--40597f16-0963-4249-bf4c-ac93b7fb9807",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may use an existing, legitimate external Web service to exfiltrate data rather than their primary command an."
   },
   "T1219": {
     "name": "Remote Access Tools",
@@ -2199,7 +2254,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--4061e78c-1284-44b4-9116-73e4ac3912f7",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "An adversary may use legitimate remote access tools to establish an interactive command and control channel within a net."
   },
   "T1583.001": {
     "name": "Domains",
@@ -2244,7 +2300,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--42e8de7b-37b2-4258-905a-6897815e58e0",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Manipulating artifact features to make them appear legitimate"
   },
   "T1546.011": {
     "name": "Application Shimming",
@@ -2267,7 +2324,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--435dfb86-2697-4867-85b5-2fef496c0517",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may search compromised systems to find and obtain insecurely stored credentials."
   },
   "T1547.010": {
     "name": "Port Monitors",
@@ -2314,7 +2372,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--43c9bc06-715b-42db-972f-52d25c09a20c",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may gain access and continuously communicate with victims by injecting malicious content into systems throug."
   },
   "T1055": {
     "name": "Process Injection",
@@ -2326,7 +2385,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--43e7dc91-05b2-474c-b9ac-2ed4fe101f4d",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may inject code into processes in order to evade process-based defenses as well as possibly elevate privileg."
   },
   "T1567.004": {
     "name": "Exfiltration Over Webhook",
@@ -2350,7 +2410,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--451a9977-d255-43c9-b431-66de80130c8c",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may use traffic signaling to hide open ports or other malicious functionality used for persistence or comman."
   },
   "T1021.008": {
     "name": "Direct Cloud VM Connections",
@@ -2372,7 +2433,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--457c7820-d331-465a-915e-42f85500ccc4",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may bypass process and/or signature-based defenses by proxying execution of malicious content with signed, o."
   },
   "T1070.006": {
     "name": "Timestomp",
@@ -2406,7 +2468,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--4933e63b-9b77-476e-ab29-761bc5b7d15a",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may reflectively load code into a process in order to conceal the execution of malicious payloads."
   },
   "T1016.002": {
     "name": "Wi-Fi Discovery",
@@ -2450,7 +2513,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--4a5b7ade-8bb5-4853-84ed-23f262002665",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may break out of a container or virtualized environment to gain access to the underlying host."
   },
   "T1518.002": {
     "name": "Backup Software Discovery",
@@ -2484,7 +2548,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--4ae4f953-fe58-4cc8-a327-33257e30a830",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to get a listing of open application windows."
   },
   "T1569.003": {
     "name": "Systemctl",
@@ -2562,7 +2627,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--4eeaf8a9-c86b-4954-a663-9555fb406466",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may schedule data exfiltration to be performed only at certain times of day or at certain intervals."
   },
   "T1021.002": {
     "name": "SMB/Windows Admin Shares",
@@ -2584,7 +2650,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--4fd8a28b-4b3a-4cd6-a8cf-85ba5f824a7f",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may implant cloud or container images with malicious code to establish persistence after gaining access to a."
   },
   "T1572": {
     "name": "Protocol Tunneling",
@@ -2595,7 +2662,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--4fe28b27-b13c-453e-a386-c2ef362a573b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may tunnel network communications to and from a victim system within a separate protocol to avoid detection/."
   },
   "T1218.002": {
     "name": "Control Panel",
@@ -2663,7 +2731,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--51a14c76-dd3b-440b-9c20-2bf91d25a814",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may use alternate authentication material, such as password hashes, Kerberos tickets, and application access."
   },
   "T1597.001": {
     "name": "Threat Intel Vendors",
@@ -2685,7 +2754,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--51ea26b1-ff1e-4faa-b1a0-1114cd298c87",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to exfiltrate data over a different network medium than the command and control channel."
   },
   "T1602.002": {
     "name": "Network Device Configuration Dump",
@@ -2707,7 +2777,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--5282dd9a-d26d-4e16-88b7-7c0f4553daf4",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Gathering personal and sensitive data about specific identities"
   },
   "T1562.004": {
     "name": "Disable or Modify System Firewall",
@@ -2729,7 +2800,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--53ac20cd-aca3-406e-9aa0-9fc7fdc60a5a",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "An adversary may compress and/or encrypt data that is collected prior to exfiltration."
   },
   "T1553.003": {
     "name": "SIP and Trust Provider Hijacking",
@@ -2751,7 +2823,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--544b0346-29ad-41e1-a808-501bb4193f47",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may take advantage of security vulnerabilities and inherent functionality in browser software to change cont."
   },
   "T1021": {
     "name": "Remote Services",
@@ -2762,7 +2835,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--54a649ff-439a-41a4-9856-8d144a2551ba",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Using valid accounts to log into remote connection services"
   },
   "T1071.003": {
     "name": "Mail Protocols",
@@ -2819,7 +2893,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--55fc4df0-b42c-479a-b860-7a6761bcaad0",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Searching freely available databases for victim-related information"
   },
   "T1218.015": {
     "name": "Electron Applications",
@@ -2852,7 +2927,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--564998d8-ab3e-4123-93fb-eccaa6b9714a",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may register a rogue Domain Controller to enable manipulation of Active Directory data."
   },
   "T1553.006": {
     "name": "Code Signing Policy Modification",
@@ -2875,7 +2951,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--56e0d8b8-3e25-49dd-9050-3aa252f5aa92",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may deploy a container into an environment to facilitate execution or evade defenses."
   },
   "T1112": {
     "name": "Modify Registry",
@@ -2887,7 +2964,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may interact with the Windows Registry as part of a variety of other techniques to aid in defense evasion, p."
   },
   "T1543.004": {
     "name": "Launch Daemon",
@@ -2910,7 +2988,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--57a3d31a-d04f-4663-b2da-7df8ec3f8c9d",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "An adversary may attempt to discover infrastructure and resources that are available within an infrastructure-as-a-servi."
   },
   "T1555.003": {
     "name": "Credentials from Web Browsers",
@@ -2945,7 +3024,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--5909f20f-3c39-4795-be06-ef1ea40d350b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may modify visual content available internally or externally to an enterprise network, thus affecting the in."
   },
   "T1535": {
     "name": "Unused/Unsupported Cloud Regions",
@@ -2956,7 +3036,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--59bd0dec-f8b2-4b9a-9141-37a1e6899761",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may create cloud instances in unused geographic service regions in order to evade detection."
   },
   "T1557.003": {
     "name": "DHCP Spoofing",
@@ -2979,7 +3060,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--5b0ad6f8-6a16-4966-a4ef-d09ea6e2a9f5",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may take control of preexisting sessions with remote services to move laterally in an environment."
   },
   "T1564.013": {
     "name": "Bind Mounts",
@@ -3035,7 +3117,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--5e4a2073-9643-44cb-a0b5-e7f4048446c7",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may enumerate information about browsers to learn more about compromised environments."
   },
   "T1552.004": {
     "name": "Private Keys",
@@ -3152,7 +3235,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--63b24abc-5702-4745-b1e4-ac70b20a43f2",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Threat actors may seek information/indicators from closed or open threat intelligence sources gathered about their own c."
   },
   "T1674": {
     "name": "Input Injection",
@@ -3163,7 +3247,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--63e3d25c-d57d-407d-8e6a-2cecd71f90be",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may simulate keystrokes on a victim’s computer by various means to perform any type of action on behalf of t."
   },
   "T1092": {
     "name": "Communication Through Removable Media",
@@ -3174,7 +3259,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--64196062-5210-42c3-9a02-563a0d1797ef",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries can perform command and control between compromised hosts on potentially disconnected networks using removab."
   },
   "T1070.001": {
     "name": "Clear Windows Event Logs",
@@ -3219,7 +3305,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--65917ae0-b854-4139-83fe-bf2441cf0196",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may modify file or directory permissions/attributes to evade access control lists (ACLs) and access protecte."
   },
   "T1003.001": {
     "name": "LSASS Memory",
@@ -3252,7 +3339,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--67073dde-d720-45ae-83da-b12d5e73ca3b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Probing victim infrastructure via network traffic for information gathering"
   },
   "T1027.016": {
     "name": "Junk Code Insertion",
@@ -3275,7 +3363,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--67720091-eee3-4d2d-ae16-8264567f6f5b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Circumvent mechanisms designed to control and elevate system privileges"
   },
   "T1134.002": {
     "name": "Create Process with Token",
@@ -3412,7 +3501,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--6bc7f9aa-b91f-4b23-84b8-5e756eba68eb",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "An adversary may attempt to enumerate running virtual machines (VMs) after gaining access to a host or hypervisor."
   },
   "T1590.006": {
     "name": "Network Security Appliances",
@@ -3491,7 +3581,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--6faf650d-bf31-4eb4-802d-1000cf38efaf",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "An adversary can leverage a computer's peripheral devices (e.g., integrated cameras or webcams) or applications (e.g., v."
   },
   "T1055.013": {
     "name": "Process Doppelgänging",
@@ -3514,7 +3605,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may look for details about the network configuration and settings, such as IP and/or MAC addresses, of syste."
   },
   "T1578.003": {
     "name": "Delete Cloud Instance",
@@ -3583,7 +3675,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--72b74d71-8169-42aa-92e0-e7b04b9f5a08",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Listing valid accounts or usernames within a compromised environment"
   },
   "T1090": {
     "name": "Proxy",
@@ -3594,7 +3687,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--731f4f55-b6d0-41d1-a7a9-072a66389aea",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may use a connection proxy to direct network traffic between systems or act as an intermediary for network c."
   },
   "T1059": {
     "name": "Command and Scripting Interpreter",
@@ -3605,7 +3699,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--7385dfaf-6886-4229-9ecd-6fd678040830",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Abusing interpreters to execute commands, scripts, or binaries"
   },
   "T1204.005": {
     "name": "Malicious Library",
@@ -3671,7 +3766,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--7655ac3b-dfde-49c5-a967-242856174434",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may manipulate continuous integration / continuous development (CI/CD) processes by injecting malicious code."
   },
   "T1482": {
     "name": "Domain Trust Discovery",
@@ -3682,7 +3778,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--767dbf9e-df3f-45cb-8998-4903ab5f80c0",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to gather information on domain trust relationships that may be used to identify lateral movemen."
   },
   "T1558.001": {
     "name": "Golden Ticket",
@@ -3704,7 +3801,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--774a3188-6ba9-4dc4-879d-d54ee48a5ce9",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may exfiltrate data, such as sensitive documents, through the use of automated processing after being gather"
   },
   "T1592.004": {
     "name": "Client Configurations",
@@ -3793,7 +3891,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--799ace7f-e227-4411-baa0-8868704f2a69",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Deleting system artifacts to remove evidence of adversary presence"
   },
   "T1048.001": {
     "name": "Exfiltration Over Symmetric Encrypted Non-C2 Protocol",
@@ -3860,7 +3959,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--7b50a1d3-4ca7-45d1-989d-a6503f04bfe1",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may abuse a container administration service to execute commands within a container."
   },
   "T1083": {
     "name": "File and Directory Discovery",
@@ -3871,7 +3971,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--7bc57495-ea59-4380-be31-a64af124ef18",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may enumerate files and directories or may search in specific locations of a host or network share for certa."
   },
   "T1568": {
     "name": "Dynamic Resolution",
@@ -3882,7 +3983,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--7bd9c723-2f78-4309-82c5-47cad406572b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may dynamically establish connections to command and control infrastructure to evade common detections and r."
   },
   "T1036.004": {
     "name": "Masquerade Task or Service",
@@ -3927,7 +4029,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--7d20fff9-8751-404e-badd-ccd71bda0236",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may modify property list files (plist files) to enable other malicious activity, while also potentially evad."
   },
   "T1127.003": {
     "name": "JamPlus",
@@ -3972,7 +4075,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--7dd95ff6-712e-4056-9626-312ea4ab4c5e",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may stage collected data in a central location or directory prior to Exfiltration."
   },
   "T1649": {
     "name": "Steal or Forge Authentication Certificates",
@@ -3983,7 +4087,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--7de1f7ac-5d0c-4c9c-8873-627202205331",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may steal or forge certificates used for authentication to access remote systems or resources."
   },
   "T1098.005": {
     "name": "Device Registration",
@@ -4006,7 +4111,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--7e150503-88e7-4861-866b-ff1ac82c4475",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to get a listing of network connections to or from the compromised system they are currently acc."
   },
   "T1584": {
     "name": "Compromise Infrastructure",
@@ -4017,7 +4123,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--7e3beebd-8bfe-4e7b-a892-e44ab06a75f9",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Taking over third-party infrastructure for use in adversary operations"
   },
   "T1553.005": {
     "name": "Mark-of-the-Web Bypass",
@@ -4051,7 +4158,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--7f0ca133-88c4-40c6-a62f-b3083a7fbc2e",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may abuse Pre-OS Boot mechanisms as a way to establish persistence on a system."
   },
   "T1612": {
     "name": "Build Image on Host",
@@ -4062,7 +4170,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--800f9819-7007-4540-a520-40e655876800",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may build a container image directly on a host to bypass defenses that monitor for the retrieval of maliciou."
   },
   "T1055.002": {
     "name": "Portable Executable Injection",
@@ -4096,7 +4205,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--81033c3b-16a4-46e4-8fed-9b030dd03c4a",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may compromise accounts with services that can be used during targeting."
   },
   "T1569.001": {
     "name": "Launchctl",
@@ -4174,7 +4284,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--82caa33e-d11a-433a-94ea-9b5a5fbef81d",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may employ various means to detect and avoid virtualization and analysis environments."
   },
   "T1102": {
     "name": "Web Service",
@@ -4185,7 +4296,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--830c9528-df21-472c-8c14-a036bf17d665",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may use an existing, legitimate external Web service as a means for relaying data to/from a compromised syst."
   },
   "T1552.001": {
     "name": "Credentials In Files",
@@ -4241,7 +4353,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--84771bc3-f6a0-403e-b144-01af70e5fda0",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may upload, install, or otherwise set up capabilities that can be used during targeting."
   },
   "T1608.005": {
     "name": "Link Target",
@@ -4263,7 +4376,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--84e02621-8fdf-470f-bd58-993bb6a89d91",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may create multiple stages for command and control that are employed under different conditions or for certa."
   },
   "T1657": {
     "name": "Financial Theft",
@@ -4274,7 +4388,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--851e071f-208d-4c79-adc6-5974c85c78f3",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may steal monetary resources from targets through extortion, social engineering, technical theft, or other m."
   },
   "T1480": {
     "name": "Execution Guardrails",
@@ -4285,7 +4400,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--853c4192-4311-43e1-bfbb-b11b14911852",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may use execution guardrails to constrain execution or actions based on adversary supplied and environment s."
   },
   "T1619": {
     "name": "Cloud Storage Object Discovery",
@@ -4296,7 +4412,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--8565825b-21c8-4518-b75e-cbc4c717a156",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may enumerate objects in cloud storage infrastructure."
   },
   "T1606.001": {
     "name": "Web Cookies",
@@ -4318,7 +4435,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--866d0d6d-02c6-42bd-aa2f-02907fdc0969",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may enumerate system and service logs to find useful data."
   },
   "T1134.001": {
     "name": "Token Impersonation/Theft",
@@ -4398,7 +4516,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--890c9858-598c-401d-a4d5-c67ebcdd703a",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries can steal application access tokens as a means of acquiring credentials to access remote systems and resourc."
   },
   "T1598.002": {
     "name": "Spearphishing Attachment",
@@ -4432,7 +4551,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--8c32eb4d-805f-4fc5-bf60-c4d476c131b5",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Relying on specific user actions to gain execution"
   },
   "T1491.001": {
     "name": "Internal Defacement",
@@ -4510,7 +4630,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--8f4a33ec-8b1f-4b80-a2f6-642b2e479580",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to get information about running processes on a system."
   },
   "T1562.003": {
     "name": "Impair Command History Logging",
@@ -4603,7 +4724,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--92a78814-b191-47ca-909c-1ccfe3777414",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may gain access to and use centralized software suites installed within an enterprise to execute commands an."
   },
   "T1041": {
     "name": "Exfiltration Over C2 Channel",
@@ -4614,7 +4736,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--92d7da27-2d91-488e-a00c-059dc162766d",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Stealing data by encoding it into normal C2 communications"
   },
   "T1134.004": {
     "name": "Parent PID Spoofing",
@@ -4637,7 +4760,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--937e4772-8441-4e4a-8bf0-8d447d667e23",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Gathering information about organizational structure and business operations"
   },
   "T1606": {
     "name": "Forge Web Credentials",
@@ -4648,7 +4772,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--94cb00a4-b295-4d06-aa2b-5653b9c1be9c",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may forge credential materials that can be used to gain access to web applications or Internet services."
   },
   "T1621": {
     "name": "Multi-Factor Authentication Request Generation",
@@ -4659,7 +4784,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--954a1639-f2d6-407d-aef3-4917622ca493",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to bypass multi-factor authentication (MFA) mechanisms and gain access to accounts by generating."
   },
   "T1554": {
     "name": "Compromise Host Software Binary",
@@ -4670,7 +4796,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--960c3c86-1480-4d72-b4e0-8c242e84a5c5",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may modify host software binaries to establish persistent access to systems."
   },
   "T1552.008": {
     "name": "Chat Messages",
@@ -4738,7 +4865,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--9b00925a-7c4b-4e53-bfc8-9a6a806fde03",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may intentionally exclude certain files, folders, directories, file types, or system components from encrypt."
   },
   "T1212": {
     "name": "Exploitation for Credential Access",
@@ -4749,7 +4877,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--9c306d8d-cde7-4b4c-b6e8-d0bb16caca36",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may exploit software vulnerabilities in an attempt to collect credentials."
   },
   "T1546.014": {
     "name": "Emond",
@@ -4783,7 +4912,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--9d48cab2-7929-4812-ad22-f536665f0109",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Gathering administrative and operational details about network environments"
   },
   "T1210": {
     "name": "Exploitation of Remote Services",
@@ -4794,7 +4924,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--9db0cf3a-a3c9-4012-8268-123b9db6fd82",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may exploit remote services to gain unauthorized access to internal systems once inside of a network."
   },
   "T1534": {
     "name": "Internal Spearphishing",
@@ -4805,7 +4936,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--9e7452df-5144-4b6e-b04a-b66dd4016747",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "After they already have access to accounts or systems within the environment, adversaries may use internal spearphishing."
   },
   "T1574.010": {
     "name": "Services File Permissions Weakness",
@@ -4841,7 +4973,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--9fa07bef-9c81-421e-a8e5-ad4366c5a925",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Leveraging organizations that have access to intended victims"
   },
   "T1136.003": {
     "name": "Cloud Account",
@@ -4874,7 +5007,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--a0e6614a-7740-4b24-bd65-f1bde09fc365",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Searching victim sites for internal organization and employee details"
   },
   "T1562.013": {
     "name": "Disable or Modify Network Device Firewall",
@@ -4897,7 +5031,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--a10641f4-87b4-45a3-a906-92a149cb2c27",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may manipulate accounts to maintain and/or elevate access to victim systems."
   },
   "T1048": {
     "name": "Exfiltration Over Alternative Protocol",
@@ -4908,7 +5043,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--a19e86f8-1c0a-4fea-8407-23b73d615776",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may steal data by exfiltrating it over a different protocol than that of the existing command and control ch."
   },
   "T1547.006": {
     "name": "Kernel Modules and Extensions",
@@ -4931,7 +5067,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--a1df809c-7d0e-459f-8fe5-25474bab770b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may employ various time-based methods to evade detection and analysis."
   },
   "T1056.002": {
     "name": "GUI Input Capture",
@@ -4989,7 +5126,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--a51eb150-93b1-484b-a503-e51453b127a4",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may search and gather information about victims from closed (e.g., paid, private, or otherwise not freely av."
   },
   "T1053.006": {
     "name": "Systemd Timers",
@@ -5013,7 +5151,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--a62a8db3-f23a-4d8f-afd6-9dbc77e7813b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Sending electronically delivered social engineering messages to gain access"
   },
   "T1542.004": {
     "name": "ROMMONkit",
@@ -5080,7 +5219,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--a93494bb-4b80-4ea1-8695-3236a49916fd",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Systematically guessing passwords to gain access to target accounts"
   },
   "T1059.004": {
     "name": "Unix Shell",
@@ -5135,7 +5275,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--ac9e6b22-11bf-45d7-9181-c1cb08360931",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may insert, delete, or manipulate data in order to influence external outcomes or hide activity, thus threat."
   },
   "T1559": {
     "name": "Inter-Process Communication",
@@ -5146,7 +5287,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--acd0ba37-7ba9-4cc5-ac61-796586cd856d",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may abuse inter-process communication (IPC) mechanisms for local code or command execution."
   },
   "T1001": {
     "name": "Data Obfuscation",
@@ -5157,7 +5299,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--ad255bfe-a9e6-4b52-a258-8d3462abe842",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may obfuscate command and control traffic to make it more difficult to detect.(Citation: Bitdefender FunnyDr."
   },
   "T1039": {
     "name": "Data from Network Shared Drive",
@@ -5168,7 +5311,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--ae676644-d2d2-41b7-af7e-9bed1b55898c",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may search network shares on computers they have compromised to find files of interest."
   },
   "T1584.006": {
     "name": "Web Services",
@@ -5190,7 +5334,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--ae7f3575-0a5e-427e-991b-fe03ad44c754",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may make changes to the operating system of embedded network devices to weaken defenses and provide new capa."
   },
   "T1574": {
     "name": "Hijack Execution Flow",
@@ -5203,7 +5348,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--aedfca76-3b30-4866-b2aa-0f1d7fd1e4b6",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Executing malicious payloads by hijacking how programs are run"
   },
   "T1036.012": {
     "name": "Browser Fingerprint",
@@ -5273,7 +5419,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--b17a1a56-e99c-403c-8948-561df0cffe81",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Using existing account credentials for access or evasion"
   },
   "T1571": {
     "name": "Non-Standard Port",
@@ -5284,7 +5431,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--b18eae87-b469-4e14-b454-b171b416bc18",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may communicate using a protocol and port pairing that are typically not associated."
   },
   "T1585.001": {
     "name": "Social Media Accounts",
@@ -5318,7 +5466,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--b21c3b2d-02e6-45b1-980b-e69051040839",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may exploit software vulnerabilities in an attempt to elevate privileges."
   },
   "T1564.009": {
     "name": "Resource Forking",
@@ -5340,7 +5489,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--b24e2a20-3b3d-4bf0-823b-1ed765398fb0",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legi."
   },
   "T1110.004": {
     "name": "Credential Stuffing",
@@ -5362,7 +5512,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--b3d682b6-98f2-4fb0-aa3b-b4df007ca70a",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or other."
   },
   "T1556.006": {
     "name": "Multi-Factor Authentication",
@@ -5441,7 +5592,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--b6075259-dba3-44e9-87c7-e954f37ec0d5",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to access detailed information about the password policy used within an enterprise network or cl."
   },
   "T1546": {
     "name": "Event Triggered Execution",
@@ -5453,7 +5605,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--b6301b64-ef57-4cce-bb0b-77026f14a8db",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may establish persistence and/or elevate privileges using system mechanisms that trigger execution based on."
   },
   "T1546.004": {
     "name": "Unix Shell Configuration Modification",
@@ -5476,7 +5629,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--b77cf5f3-6060-475d-bd60-40ccbf28fdc2",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may gather credential material by invoking or forcing a user to automatically provide authentication informa."
   },
   "T1134.005": {
     "name": "SID-History Injection",
@@ -5499,7 +5653,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--b8017880-4b1e-42de-ad10-ae7ac6705166",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may bridge network boundaries by compromising perimeter network devices or internal devices responsible for."
   },
   "T1486": {
     "name": "Data Encrypted for Impact",
@@ -5510,7 +5665,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--b80d107d-fa0d-4b60-9684-b0433e8bdba0",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Encrypting data to render it inaccessible and interrupt availability"
   },
   "T1553": {
     "name": "Subvert Trust Controls",
@@ -5521,7 +5677,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--b83e166d-13d7-4b52-8677-dff90c548fd7",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may undermine security controls that will either warn users of untrusted activity or prevent execution of un."
   },
   "T1548.004": {
     "name": "Elevated Execution with Prompt",
@@ -5555,7 +5712,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--b8902400-e6c5-4ba2-95aa-2d35b442b118",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Using encryption algorithms to conceal command and control traffic"
   },
   "T1547.002": {
     "name": "Authentication Package",
@@ -5612,7 +5770,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--bb5a00de-e086-4859-a231-fa793f6797e2",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may use methods of capturing user input to obtain credentials or collect information."
   },
   "T1566.004": {
     "name": "Spearphishing Voice",
@@ -5723,7 +5882,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--be2dcee9-a7a7-4e38-afd6-21b31ecc3d63",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may exploit software vulnerabilities in client applications to execute code."
   },
   "T1595.003": {
     "name": "Wordlist Scanning",
@@ -5745,7 +5905,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--bed81616-3dde-4685-be6e-ba9820f9a7ed",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may flood targeted email addresses with an overwhelming volume of messages."
   },
   "T1562.011": {
     "name": "Spoof Security Alerting",
@@ -5800,7 +5961,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may transfer tools or other files between systems in a compromised environment."
   },
   "T1574.009": {
     "name": "Path Interception by Unquoted Path",
@@ -5858,7 +6020,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--c21d5a77-d422-4a69-acd7-2c53c1faa34b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may use an OSI non-application layer protocol for communication between host and C2 server or among infected."
   },
   "T1059.013": {
     "name": "Container CLI/API",
@@ -5902,7 +6065,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--c31aebd6-c9b5-420f-ba2a-5853bbf897fa",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may achieve persistence by leveraging OAuth application integrations in a software-as-a-service environment."
   },
   "T1001.003": {
     "name": "Protocol or Service Impersonation",
@@ -5924,7 +6088,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--c32f7008-9fea-41f7-8366-5eb9b74bd896",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may interact with the Windows Registry to gather information about the system, configuration, and installed."
   },
   "T1030": {
     "name": "Data Transfer Size Limits",
@@ -5935,7 +6100,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--c3888c54-775d-4b2f-b759-75a2ececcbfd",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "An adversary may exfiltrate data in fixed size chunks instead of whole files or limit packet sizes below certain thresho."
   },
   "T1550.004": {
     "name": "Web Session Cookie",
@@ -6018,7 +6184,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--c675646d-e204-4aa8-978d-e3d6d65885c4",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may perform Endpoint Denial of Service (DoS) attacks to degrade or block the availability of services to use."
   },
   "T1027.004": {
     "name": "Compile After Delivery",
@@ -6040,7 +6207,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--c877e33f-1df6-40d6-b1e7-ce70f16f4979",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may gather information in an attempt to calculate the geographical location of a victim host."
   },
   "T1564.007": {
     "name": "VBA Stomping",
@@ -6063,7 +6231,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--c8e87b83-edbb-48d4-9295-4974897525b7",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may abuse BITS jobs to persistently execute code and perform various background tasks."
   },
   "T1127.001": {
     "name": "MSBuild",
@@ -6085,7 +6254,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--c9e0c59e-162e-40a4-b8b1-78fab4329ada",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may impersonate a trusted person or organization in order to persuade and trick a target into performing som."
   },
   "T1578.005": {
     "name": "Modify Cloud Compute Configurations",
@@ -6207,7 +6377,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--cc7b8c4e-9be0-47ca-b0bb-83915ec3ee2f",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may encode data to make the content of command and control traffic more difficult to detect."
   },
   "T1546.010": {
     "name": "AppInit DLLs",
@@ -6230,7 +6401,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--cca0ccb6-a068-4574-a722-b1556f86833a",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Sending messages to trick targets into divulging sensitive data"
   },
   "T1496": {
     "name": "Resource Hijacking",
@@ -6241,7 +6413,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--cd25c1b4-935c-4f0e-ba8d-552f28bc4783",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may leverage the resources of co-opted systems to complete resource-intensive tasks, which may impact system."
   },
   "T1585": {
     "name": "Establish Accounts",
@@ -6252,7 +6425,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--cdfc5f0a-9bb9-4352-b896-553cfa2d8fd8",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Creating and cultivating personas for use during adversary operations"
   },
   "T1588": {
     "name": "Obtain Capabilities",
@@ -6263,7 +6437,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--ce0687a0-e692-4b77-964a-0784a8e54ff1",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Buying or stealing malware, tools, and exploit-related information"
   },
   "T1546.002": {
     "name": "Screensaver",
@@ -6366,7 +6541,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--d157f9d2-d09a-4efa-bb2a-64963f94e253",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may abuse system services or daemons to execute commands or programs."
   },
   "T1059.003": {
     "name": "Windows Command Shell",
@@ -6400,7 +6576,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--d21bb61f-08ad-4dc1-b001-81ca6cb79954",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may purchase or otherwise acquire an existing access to a target system or network."
   },
   "T1601.001": {
     "name": "Patch System Image",
@@ -6433,7 +6610,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--d28ef391-8ed4-45dc-bc4a-2f43abf54416",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may leverage information repositories to mine valuable information."
   },
   "T1070.009": {
     "name": "Clear Persistence",
@@ -6488,7 +6666,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--d40239b3-05ff-46d8-9bdd-b46d13463ef9",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may physically introduce computer accessories, networking hardware, or other computing devices into a system."
   },
   "T1219.002": {
     "name": "Remote Desktop Software",
@@ -6510,7 +6689,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--d456de47-a16f-4e46-8980-e67478a12dcb",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may abuse legitimate extensible development features of servers to establish persistent access to systems."
   },
   "T1485": {
     "name": "Data Destruction",
@@ -6521,7 +6701,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--d45a3d09-b3cf-48f4-9f0f-f521ee5cb05c",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Overwriting or deleting files to interrupt system availability"
   },
   "T1132.002": {
     "name": "Non-Standard Encoding",
@@ -6556,7 +6737,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--d4bdbdea-eaec-4071-b4f9-5105e12ea4b6",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may exfiltrate data by transferring the data, including through sharing/syncing and creating backups of clou."
   },
   "T1027.006": {
     "name": "HTML Smuggling",
@@ -6613,7 +6795,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--d742a578-d70e-4d0e-96a6-02a9c30204e6",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Gaining access through users visiting malicious or compromised websites"
   },
   "T1498": {
     "name": "Network Denial of Service",
@@ -6624,7 +6807,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--d74c4a7e-ffbf-432f-9365-7ebf1f787cab",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may perform Network Denial of Service (DoS) attacks to degrade or block the availability of targeted resourc."
   },
   "T1651": {
     "name": "Cloud Administration Command",
@@ -6635,7 +6819,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--d94b3ae9-8059-4989-8e9f-ea0f601f80a7",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may abuse cloud management services to execute commands within virtual machines."
   },
   "T1546.016": {
     "name": "Installer Packages",
@@ -6669,7 +6854,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--dc31fe1e-d722-49da-8f5f-92c7b5aff534",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may create or modify references in user document templates to conceal malicious code or force authentication."
   },
   "T1037.004": {
     "name": "RC Scripts",
@@ -6693,7 +6879,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--dcaa092b-7de9-4a21-977f-7fcb77e89c48",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Modify access tokens to operate under different security contexts"
   },
   "T1111": {
     "name": "Multi-Factor Authentication Interception",
@@ -6704,7 +6891,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--dd43c543-bb85-4a6f-aa6e-160d90d06a49",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may target multi-factor authentication (MFA) mechanisms, (i.e., smart cards, token generators, etc.) to gain."
   },
   "T1027.002": {
     "name": "Software Packing",
@@ -6782,7 +6970,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--dff263cc-328e-42b4-afbc-1fee8b6a8913",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries who successfully compromise a system may attempt to maintain persistence by “closing the door” behind them."
   },
   "T1563.002": {
     "name": "RDP Hijacking",
@@ -6804,7 +6993,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--e01be9c5-e763-4caf-aeb7-000b416aef67",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may create an account to maintain access to victim systems.(Citation: Symantec WastedLocker June 2020) With."
   },
   "T1547.013": {
     "name": "XDG Autostart Entries",
@@ -6838,7 +7028,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--e1c2db92-7ae3-4e6a-90b4-157c1c1565cb",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may fake, or spoof, a sender’s identity by modifying the value of relevant email headers in order to establi."
   },
   "T1526": {
     "name": "Cloud Service Discovery",
@@ -6849,7 +7040,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--e24fcba8-2557-4442-a139-1ee2f2e784db",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "An adversary may attempt to enumerate the cloud services running on a system after gaining access."
   },
   "T1204.004": {
     "name": "Malicious Copy and Paste",
@@ -6871,7 +7063,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to get a listing of other systems by IP address, hostname, or other logical identifier on a netw."
   },
   "T1046": {
     "name": "Network Service Discovery",
@@ -6882,7 +7075,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--e3a12395-188d-4051-9a16-ea8e14d07b88",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to get a listing of services running on remote hosts and local network infrastructure devices, i."
   },
   "T1590.001": {
     "name": "Domain Properties",
@@ -6904,7 +7098,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--e3b6daca-e963-4a69-aee6-ed4fd653ad58",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to get a listing of software and software versions that are installed on a system or in a cloud."
   },
   "T1538": {
     "name": "Cloud Service Dashboard",
@@ -6915,7 +7110,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--e49920b0-6c54-40c1-9571-73723653205f",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "An adversary may use a cloud service dashboard GUI with stolen credentials to gain useful information from an operationa."
   },
   "T1055.005": {
     "name": "Thread Local Storage",
@@ -6939,7 +7135,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--e4dc8c01-417f-458d-9ee0-bb0617c1b391",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may employ various means to detect and avoid debuggers."
   },
   "T1036.006": {
     "name": "Space after Filename",
@@ -6996,7 +7193,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--e6415f09-df0e-48de-9aba-928c902b7549",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may attempt to exfiltrate data via a physical medium, such as a removable drive."
   },
   "T1105": {
     "name": "Ingress Tool Transfer",
@@ -7007,7 +7205,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may transfer tools or other files from an external system into a compromised environment."
   },
   "T1216.002": {
     "name": "SyncAppvPublishingServer",
@@ -7052,7 +7251,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--e848506b-8484-4410-8017-3d235a52f5b3",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may abuse serverless computing, integration, and automation services to execute arbitrary code in cloud envi."
   },
   "T1548.006": {
     "name": "TCC Manipulation",
@@ -7087,7 +7287,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--ea071aa0-8f17-416f-ab0d-2bab7e79003d",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may impair a system's ability to hibernate, reboot, or shut down in order to extend access to infected machi."
   },
   "T1027.007": {
     "name": "Dynamic API Resolution",
@@ -7144,7 +7345,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--eb897572-8979-4242-a089-56f294f4c91d",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may manipulate network traffic in order to hide and evade detection of their C2 infrastructure."
   },
   "T1484": {
     "name": "Domain or Tenant Policy Modification",
@@ -7156,7 +7358,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--ebb42bbe-62d7-47d7-a55f-3b08b61d792d",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may modify the configuration settings of a domain or identity tenant to evade defenses and/or escalate privi."
   },
   "T1220": {
     "name": "XSL Script Processing",
@@ -7167,7 +7370,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--ebbe170d-aa74-4946-8511-9921243415a3",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may bypass application control and obscure execution of code by embedding scripts inside XSL files."
   },
   "T1596.005": {
     "name": "Scan Databases",
@@ -7233,7 +7437,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--edadea33-549c-4ed1-9783-8f5a5853cbdf",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Building in-house malware, exploits, or certificates for targeting"
   },
   "T1003.003": {
     "name": "NTDS",
@@ -7348,7 +7553,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--f24faf46-3b26-4dbb-98f2-63460498e433",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may use fallback or alternate communication channels if the primary channel is compromised or inaccessible i"
   },
   "T1680": {
     "name": "Local Storage Discovery",
@@ -7359,7 +7565,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--f2514ae4-4e9b-4f26-a5ba-c4ae85fe93c3",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may enumerate local drives, disks, and/or volumes and their attributes like total or free space and volume s."
   },
   "T1564.004": {
     "name": "NTFS File Attributes",
@@ -7403,7 +7610,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--f3c544dc-673c-4ef3-accb-53229f1ae077",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "An adversary may gather the system time and/or time zone settings from a local or remote system."
   },
   "T1053.002": {
     "name": "At",
@@ -7452,7 +7660,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--f4c1826f-a322-41cd-9557-562100848c84",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may modify authentication mechanisms and processes to access user credentials or enable otherwise unwarrante."
   },
   "T1546.017": {
     "name": "Udev Rules",
@@ -7487,7 +7696,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--f5bb433e-bdf6-4781-84bc-35e97e43be89",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may overwrite or corrupt the flash memory contents of system BIOS or other firmware in devices attached to a."
   },
   "T1490": {
     "name": "Inhibit System Recovery",
@@ -7498,7 +7708,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--f5d8eed6-48a9-4cdf-a3d7-d1ffa99c3d2a",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may delete or remove built-in data and turn off services designed to aid in the recovery of a corrupted syst."
   },
   "T1546.007": {
     "name": "Netsh Helper DLL",
@@ -7543,7 +7754,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--f6fe9070-7a65-49ea-ae72-76292f42cebe",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may use trusted scripts, often signed with certificates, to proxy the execution of malicious files."
   },
   "T1102.001": {
     "name": "Dead Drop Resolver",
@@ -7726,7 +7938,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--fde016f6-211a-41c8-a4ab-301f1e419c62",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may gain initial access to target systems by connecting to wireless networks."
   },
   "T1211": {
     "name": "Exploitation for Defense Evasion",
@@ -7737,7 +7950,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--fe926152-f431-4baf-956c-4ad3cb0bf23b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may exploit a system or application vulnerability to bypass security features."
   },
   "T1127": {
     "name": "Trusted Developer Utilities Proxy Execution",
@@ -7748,7 +7962,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--ff25900d-76d5-449b-a351-8824e62fc81b",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may take advantage of trusted developer utilities to proxy execution of malicious payloads."
   },
   "T1529": {
     "name": "System Shutdown/Reboot",
@@ -7759,7 +7974,8 @@
     "is_subtechnique": false,
     "stix_id": "attack-pattern--ff73aa03-0090-4464-83ac-f89e233c02bc",
     "parent_technique_id": null,
-    "parent_technique_name": null
+    "parent_technique_name": null,
+    "short_note": "Adversaries may shutdown/reboot systems to interrupt access to, or aid in the destruction of, those systems."
   },
   "T1218.014": {
     "name": "MMC",

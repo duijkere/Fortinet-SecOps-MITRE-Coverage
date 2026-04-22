@@ -702,7 +702,7 @@
       view: 'coverage' // or 'hunting'
     };
 
-    const DATA_VERSION = '20260422-1';
+    const DATA_VERSION = '20260422-2';
     const matrixEl = document.getElementById('matrix');
     const tacticFilterEl = document.getElementById('tacticFilter');
     const searchInputEl = document.getElementById('searchInput');
@@ -805,7 +805,8 @@ function normalizeRow(row) {
         parents.push({
           technique_id: techniqueId,
           technique_name: item.name || techniqueId,
-          tactic
+          tactic,
+          note: item.short_note || ''
         });
       }
 
@@ -831,9 +832,9 @@ function groupCoverage(rows) {
       technique_id: parent.technique_id,
       technique_name: parent.technique_name,
       tactic: parent.tactic || 'Unknown',
-      products: {FSM: 0,FEDR: 0,FNDR: 0,FEDR_level: 'none'},
+      products: {FSM: 0, FEDR: 0, FNDR: 0, FEDR_level: 'none'},
       combined: 0,
-      notes: [],
+      notes: parent.note ? [parent.note] : [],
       sources: [],
       subtechniques: new Map(),
       mapping_count: 0
@@ -1257,7 +1258,7 @@ function groupCoverage(rows) {
                       <strong>${src.technique_id} - ${src.technique_name}</strong>
                     </div>
                     <div class="source-note">
-                      ${src.note || src.description || (src.product === 'FEDR' ? 'No direct detection - telemetry only' : 'No mapped entry detail')}
+                      ${src.description || src.note || (src.product === 'FEDR' ? 'No direct detection - telemetry only' : 'No mapped entry detail')}
                     </div>
                   </div>
                   `).join('')}
